@@ -15,6 +15,8 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -66,9 +68,73 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        /* RTL Sidebar */
-        html[dir="rtl"] .lg\:translate-x-0 {
+        /* LTR Sidebar */
+        html[dir="ltr"] aside#sidebar {
+            left: 0;
+            right: auto;
+            border-right: 1px solid;
+            border-left: none;
+        }
+
+        html[dir="ltr"] aside#sidebar.sidebar-open {
             transform: translateX(0);
+        }
+
+        html[dir="ltr"] aside#sidebar:not(.sidebar-open) {
+            transform: translateX(-100%);
+        }
+
+        /* RTL Sidebar */
+        html[dir="rtl"] aside#sidebar {
+            right: 0;
+            left: auto;
+            border-left: 1px solid;
+            border-right: none;
+        }
+
+        html[dir="rtl"] aside#sidebar.sidebar-open {
+            transform: translateX(0);
+        }
+
+        html[dir="rtl"] aside#sidebar:not(.sidebar-open) {
+            transform: translateX(100%);
+        }
+
+        /* Desktop view - always visible */
+        @media (min-width: 1024px) {
+            html[dir="ltr"] aside#sidebar {
+                transform: translateX(0) !important;
+            }
+
+            html[dir="rtl"] aside#sidebar {
+                transform: translateX(0) !important;
+            }
+        }
+
+        /* Main content margin for LTR */
+        html[dir="ltr"] .main-wrapper {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        @media (min-width: 1024px) {
+            html[dir="ltr"] .main-wrapper {
+                margin-left: 16rem;
+                margin-right: 0;
+            }
+        }
+
+        /* Main content margin for RTL */
+        html[dir="rtl"] .main-wrapper {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        @media (min-width: 1024px) {
+            html[dir="rtl"] .main-wrapper {
+                margin-right: 16rem;
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -77,10 +143,10 @@
 
     <!-- Sidebar -->
     <aside id="sidebar"
-        class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-dark-card border-r border-gray-200 dark:border-gray-800 transform -translate-x-full lg:translate-x-0 sidebar-transition">
+        class="fixed inset-y-0 z-50 w-64 bg-white dark:bg-dark-card border-gray-200 dark:border-gray-800 sidebar-transition">
         <div class="h-full flex flex-col">
-            <!-- Logo -->
-            <div class="h-20 flex items-center px-6 border-b border-gray-100 dark:border-gray-800">
+            <!-- Logo and Close Button -->
+            <div class="h-20 flex items-center justify-between px-6 border-b border-gray-100 dark:border-gray-800">
                 <a href="index.html" class="flex items-center gap-3">
                     <div
                         class="w-8 h-8 flex items-center justify-center bg-gradient-to-br from-primary-600 to-secondary-600 rounded-lg">
@@ -88,6 +154,11 @@
                     </div>
                     <span class="font-heading font-bold text-xl text-gray-900 dark:text-white">Urcourse</span>
                 </a>
+                <button id="sidebar-close" class="lg:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
             </div>
 
             <!-- Navigation -->
@@ -161,7 +232,7 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="lg:ml-64 min-h-screen flex flex-col">
+    <div class="main-wrapper min-h-screen flex flex-col">
 
         <!-- Topbar -->
         <header
@@ -263,26 +334,90 @@
                     </div>
                 </div>
 
-                <!-- Continue Learning -->
-                <h2 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-4">Continue Learning</h2>
-                <div
-                    class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 mb-8">
-                    <div class="flex flex-col md:flex-row gap-6 items-center">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                            alt="Course" class="w-full md:w-48 h-32 object-cover rounded-xl">
-                        <div class="flex-1 w-full">
-                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Complete Web Development
-                                Bootcamp</h3>
-                            <div class="flex items-center justify-between text-sm text-gray-500 mb-2">
-                                <span>Progress</span>
-                                <span>65%</span>
+                <!-- Performance Analytics (8 Charts) -->
+                <h2 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-6 mt-8">Performance
+                    Analytics</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+                            <!-- Chart 1: Weekly Activity (2 Columns) -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 lg:col-span-2 hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">Weekly Learning Activity</h3>
+                                <div id="chart-activity" class="w-full"></div>
                             </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mb-4">
-                                <div class="bg-primary-600 h-2.5 rounded-full" style="width: 65%"></div>
+
+                            <!-- Chart 2: Skills Proficiency (2 Columns) -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 lg:col-span-2 hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">Skills Proficiency</h3>
+                                <div id="chart-skills" class="w-full"></div>
                             </div>
-                            <button
-                                class="px-6 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm transition-colors">Continue
-                                Course</button>
+
+                            <!-- Chart 3: Overall Progress (2 Columns) -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 lg:col-span-2 hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">Overall Progress</h3>
+                                <div id="chart-progress" class="w-full flex items-center justify-center"></div>
+                            </div>
+
+                            <!-- Chart 4: Daily Study Hours (2 Columns) -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 lg:col-span-2 hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">Daily Study Hours</h3>
+                                <div id="chart-hours" class="w-full"></div>
+                            </div>
+
+                            <!-- Chart 5: Assessment Performance (2 Columns) -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 lg:col-span-2 hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">Assessment Performance</h3>
+                                <div id="chart-scores" class="w-full"></div>
+                            </div>
+
+                            <!-- Chart 6: Time by Subject (2 Columns) -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 lg:col-span-2 hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">Time by Subject</h3>
+                                <div id="chart-distribution" class="w-full"></div>
+                            </div>
+
+                            <!-- Chart 7: Assignments (2 Columns) -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 lg:col-span-2 hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">Assignments</h3>
+                                <div id="chart-assignments" class="w-full"></div>
+                            </div>
+
+                            <!-- Chart 8: Focus & Concentration (2 Columns) -->
+                            <div
+                                class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 lg:col-span-2 hover:shadow-md transition-shadow">
+                                <h3 class="font-bold text-base md:text-lg text-gray-900 dark:text-white mb-4">Focus & Concentration</h3>
+                                <div id="chart-focus" class="w-full"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continue Learning -->
+                    <h2 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-4">Continue Learning</h2>
+                    <div
+                        class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 mb-8">
+                        <div class="flex flex-col md:flex-row gap-6 items-center">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                                alt="Course" class="w-full md:w-48 h-32 object-cover rounded-xl">
+                            <div class="flex-1 w-full">
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Complete Web
+                                    Development
+                                    Bootcamp</h3>
+                                <div class="flex items-center justify-between text-sm text-gray-500 mb-2">
+                                    <span>Progress</span>
+                                    <span>65%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mb-4">
+                                    <div class="bg-primary-600 h-2.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <button
+                                    class="px-6 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-semibold text-sm transition-colors">Continue
+                                    Course</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -290,36 +425,39 @@
 
             <!-- My Courses Tab -->
             <div id="my-courses" class="tab-content hidden">
-                <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">My Courses</h1>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Course 1 -->
-                    <div
-                        class="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Course" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Web Development Bootcamp
-                            </h3>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-4">
-                                <div class="bg-primary-600 h-2 rounded-full" style="width: 65%"></div>
+                    <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">My Courses</h1>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Course 1 -->
+                        <div
+                            class="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Course" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Web Development
+                                    Bootcamp
+                                </h3>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-4">
+                                    <div class="bg-primary-600 h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <button
+                                    class="w-full py-2 rounded-lg border border-primary-600 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 font-semibold transition-colors">Continue</button>
                             </div>
-                            <button
-                                class="w-full py-2 rounded-lg border border-primary-600 text-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/20 font-semibold transition-colors">Continue</button>
                         </div>
-                    </div>
-                    <!-- Course 2 -->
-                    <div
-                        class="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Course" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Data Science Fundamentals
-                            </h3>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-4">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                        <!-- Course 2 -->
+                        <div
+                            class="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Course" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Data Science
+                                    Fundamentals
+                                </h3>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-4">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                                </div>
+                                <button
+                                    class="w-full py-2 rounded-lg bg-green-50 text-green-600 font-semibold cursor-default">Completed</button>
                             </div>
-                            <button
-                                class="w-full py-2 rounded-lg bg-green-50 text-green-600 font-semibold cursor-default">Completed</button>
                         </div>
                     </div>
                 </div>
@@ -327,96 +465,102 @@
 
             <!-- Certifications Tab -->
             <div id="certifications" class="tab-content hidden">
-                <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">My Certifications</h1>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Certificate 1 -->
-                    <div
-                        class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                    <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">My Certifications
+                    </h1>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Certificate 1 -->
                         <div
-                            class="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center text-green-600 mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                            class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                            <div
+                                class="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center text-green-600 mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Data Science Fundamentals
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Issued on May 15, 2025</p>
+                            <button
+                                class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Download
+                                PDF</button>
                         </div>
-                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Data Science Fundamentals</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Issued on May 15, 2025</p>
-                        <button
-                            class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Download
-                            PDF</button>
-                    </div>
 
-                    <!-- Certificate 2 -->
-                    <div
-                        class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                        <!-- Certificate 2 -->
                         <div
-                            class="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center text-green-600 mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                            class="bg-white dark:bg-dark-card rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                            <div
+                                class="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center text-green-600 mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Python for Beginners</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Issued on Jan 20, 2025</p>
+                            <button
+                                class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Download
+                                PDF</button>
                         </div>
-                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Python for Beginners</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Issued on Jan 20, 2025</p>
-                        <button
-                            class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Download
-                            PDF</button>
                     </div>
                 </div>
             </div>
 
             <!-- Achievements Tab -->
             <div id="achievements" class="tab-content hidden">
-                <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">Achievements</h1>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div
-                        class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 text-center">
+                    <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">Achievements</h1>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                         <div
-                            class="w-20 h-20 mx-auto bg-yellow-100 rounded-full flex items-center justify-center text-4xl mb-4">
-                            🏆</div>
-                        <h3 class="font-bold text-gray-900 dark:text-white">Fast Learner</h3>
-                        <p class="text-xs text-gray-500">Completed 1st course</p>
-                    </div>
-                    <div
-                        class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 text-center">
+                            class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 text-center">
+                            <div
+                                class="w-20 h-20 mx-auto bg-yellow-100 rounded-full flex items-center justify-center text-4xl mb-4">
+                                🏆</div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">Fast Learner</h3>
+                            <p class="text-xs text-gray-500">Completed 1st course</p>
+                        </div>
                         <div
-                            class="w-20 h-20 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-4xl mb-4">
-                            ⚡</div>
-                        <h3 class="font-bold text-gray-900 dark:text-white">7 Day Streak</h3>
-                        <p class="text-xs text-gray-500">Consistent learning</p>
+                            class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 text-center">
+                            <div
+                                class="w-20 h-20 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-4xl mb-4">
+                                ⚡</div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">7 Day Streak</h3>
+                            <p class="text-xs text-gray-500">Consistent learning</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Settings Tab -->
             <div id="settings" class="tab-content hidden">
-                <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">Settings</h1>
-                <div
-                    class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 max-w-2xl">
-                    <form>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">First
-                                    Name</label>
-                                <input type="text" value="Alex"
+                    <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">Settings</h1>
+                    <div
+                        class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 max-w-2xl">
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">First
+                                        Name</label>
+                                    <input type="text" value="Alex"
+                                        class="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 text-gray-900 dark:text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Last
+                                        Name</label>
+                                    <input type="text" value="Johnson"
+                                        class="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 text-gray-900 dark:text-white">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                                <input type="email" value="alex.j@example.com"
                                     class="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 text-gray-900 dark:text-white">
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Last
-                                    Name</label>
-                                <input type="text" value="Johnson"
-                                    class="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 text-gray-900 dark:text-white">
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                            <input type="email" value="alex.j@example.com"
-                                class="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 text-gray-900 dark:text-white">
-                        </div>
-                        <button
-                            class="px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold transition-colors">Save
-                            Changes</button>
-                    </form>
+                            <button
+                                class="px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold transition-colors">Save
+                                Changes</button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
@@ -455,11 +599,432 @@
 
         // Sidebar Toggle
         const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarClose = document.getElementById('sidebar-close');
         const sidebar = document.getElementById('sidebar');
 
         if (sidebarToggle) {
             sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('-translate-x-full');
+                sidebar.classList.add('sidebar-open');
+            });
+        }
+
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', () => {
+                sidebar.classList.remove('sidebar-open');
+            });
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 1024 && sidebar.classList.contains('sidebar-open')) {
+                if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.remove('sidebar-open');
+                }
+            }
+        });
+
+        // --- ApexCharts Configuration ---
+        const getChartColors = () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            return {
+                text: isDark ? '#9ca3af' : '#6b7280',
+                grid: isDark ? '#374151' : '#e5e7eb',
+                bg: 'transparent'
+            };
+        };
+
+        function getResponsiveHeight() {
+            const width = window.innerWidth;
+            if (width < 640) return 250;
+            if (width < 1024) return 280;
+            if (width < 1536) return 320;
+            return 350;
+        }
+
+        function getResponsiveFontSizes() {
+            const width = window.innerWidth;
+            if (width < 640) {
+                return {
+                    legend: '11px',
+                    axis: '10px',
+                    dataLabel: '12px',
+                    title: '14px'
+                };
+            }
+            if (width < 1024) {
+                return {
+                    legend: '12px',
+                    axis: '11px',
+                    dataLabel: '13px',
+                    title: '15px'
+                };
+            }
+            return {
+                legend: '13px',
+                axis: '12px',
+                dataLabel: '14px',
+                title: '16px'
+            };
+        }
+
+        let charts = {};
+
+        function initCharts() {
+            const colors = getChartColors();
+            const fontFamily = 'Plus Jakarta Sans, sans-serif';
+            const fontSize = getResponsiveFontSizes();
+            const chartHeight = getResponsiveHeight();
+
+            const commonOptions = {
+                chart: {
+                    background: 'transparent',
+                    toolbar: { show: false },
+                    animations: { enabled: true },
+                    height: chartHeight,
+                    fontFamily: fontFamily
+                },
+                theme: { mode: document.documentElement.classList.contains('dark') ? 'dark' : 'light' },
+                dataLabels: { enabled: false, style: { fontSize: fontSize.dataLabel } },
+                grid: { borderColor: colors.grid },
+                xaxis: {
+                    labels: { 
+                        style: { colors: colors.text, fontFamily: fontFamily, fontSize: fontSize.axis },
+                        trim: true,
+                        rotate: window.innerWidth < 640 ? -45 : 0
+                    },
+                    axisBorder: { show: false },
+                    axisTicks: { show: false }
+                },
+                yaxis: { 
+                    labels: { 
+                        style: { colors: colors.text, fontFamily: fontFamily, fontSize: fontSize.axis } 
+                    } 
+                },
+                legend: { 
+                    labels: { colors: colors.text }, 
+                    fontFamily: fontFamily,
+                    fontSize: fontSize.legend,
+                    position: window.innerWidth < 640 ? 'bottom' : 'top'
+                },
+                tooltip: { 
+                    theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
+                    style: { fontSize: fontSize.dataLabel }
+                }
+            };
+
+            // 1. Weekly Learning Activity (Heatmap-like Bar)
+            if (document.querySelector("#chart-activity")) {
+                charts.activity = new ApexCharts(document.querySelector("#chart-activity"), {
+                    ...commonOptions,
+                    series: [{ name: 'Hours', data: [2.5, 3.2, 4.0, 1.5, 5.5, 3.8, 2.0] }],
+                    chart: { 
+                        type: 'bar', 
+                        height: chartHeight,
+                        parentHeightOffset: 0, 
+                        toolbar: { show: false },
+                        fontFamily: fontFamily
+                    },
+                    colors: ['#4f46e5'],
+                    plotOptions: { 
+                        bar: { 
+                            borderRadius: 4, 
+                            columnWidth: window.innerWidth < 640 ? '70%' : '50%' 
+                        } 
+                    },
+                    xaxis: { 
+                        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], 
+                        labels: { 
+                            style: { colors: colors.text, fontSize: fontSize.axis },
+                            rotate: 0
+                        } 
+                    }
+                });
+                charts.activity.render();
+            }
+
+            // 2. Skills Proficiency (Radar)
+            if (document.querySelector("#chart-skills")) {
+                charts.skills = new ApexCharts(document.querySelector("#chart-skills"), {
+                    ...commonOptions,
+                    series: [{ name: 'Level', data: [80, 50, 30, 40, 100, 20] }],
+                    chart: { 
+                        type: 'radar', 
+                        height: window.innerWidth < 640 ? 280 : chartHeight,
+                        parentHeightOffset: 0, 
+                        toolbar: { show: false },
+                        fontFamily: fontFamily
+                    },
+                    labels: ['HTML', 'CSS', 'JS', 'React', 'Design', 'Backend'],
+                    colors: ['#c026d3'],
+                    fill: { opacity: 0.2 },
+                    markers: { size: window.innerWidth < 640 ? 3 : 4 },
+                    stroke: { width: window.innerWidth < 640 ? 1 : 2 },
+                    plotOptions: {
+                        radar: {
+                            size: window.innerWidth < 640 ? 100 : undefined,
+                            polygons: {
+                                strokeColors: colors.grid,
+                                fill: { colors: ['transparent'] }
+                            }
+                        }
+                    }
+                });
+                charts.skills.render();
+            }
+
+            // 3. Course Progress (RadialBar)
+            if (document.querySelector("#chart-progress")) {
+                charts.progress = new ApexCharts(document.querySelector("#chart-progress"), {
+                    ...commonOptions,
+                    series: [75],
+                    chart: { 
+                        type: 'radialBar', 
+                        height: window.innerWidth < 640 ? 220 : chartHeight,
+                        sparkline: { enabled: true },
+                        fontFamily: fontFamily
+                    },
+                    colors: ['#0ea5e9'],
+                    plotOptions: {
+                        radialBar: {
+                            hollow: { size: '60%' },
+                            track: { background: colors.grid },
+                            dataLabels: {
+                                show: true,
+                                name: { 
+                                    show: true, 
+                                    color: colors.text, 
+                                    offsetY: 20,
+                                    fontSize: fontSize.dataLabel
+                                },
+                                value: { 
+                                    show: true, 
+                                    color: document.documentElement.classList.contains('dark') ? '#fff' : '#111827', 
+                                    fontSize: window.innerWidth < 640 ? '20px' : '24px',
+                                    fontWeight: 'bold', 
+                                    offsetY: -20 
+                                }
+                            }
+                        }
+                    },
+                    labels: ['Overall']
+                });
+                charts.progress.render();
+            }
+
+            // 4. Daily Study Hours (Area)
+            if (document.querySelector("#chart-hours")) {
+                charts.hours = new ApexCharts(document.querySelector("#chart-hours"), {
+                    ...commonOptions,
+                    series: [{ name: 'Study Time', data: [30, 40, 35, 50, 49, 60, 70, 91, 125] }],
+                    chart: { 
+                        type: 'area', 
+                        height: chartHeight,
+                        parentHeightOffset: 0, 
+                        toolbar: { show: false },
+                        fontFamily: fontFamily
+                    },
+                    colors: ['#10b981'],
+                    fill: { 
+                        type: 'gradient', 
+                        gradient: { 
+                            shadeIntensity: 1, 
+                            opacityFrom: 0.7, 
+                            opacityTo: 0.2, 
+                            stops: [0, 90, 100] 
+                        } 
+                    },
+                    stroke: { width: window.innerWidth < 640 ? 2 : 3 },
+                    xaxis: { 
+                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'], 
+                        labels: { 
+                            style: { colors: colors.text, fontSize: fontSize.axis },
+                            rotate: window.innerWidth < 640 ? -45 : 0
+                        } 
+                    }
+                });
+                charts.hours.render();
+            }
+
+            // 5. Assessment Scores (Line)
+            if (document.querySelector("#chart-scores")) {
+                charts.scores = new ApexCharts(document.querySelector("#chart-scores"), {
+                    ...commonOptions,
+                    series: [
+                        { name: 'Your Score', data: [65, 78, 82, 75, 88, 95] },
+                        { name: 'Avg Class Score', data: [70, 72, 75, 78, 80, 82] }
+                    ],
+                    chart: { 
+                        type: 'line', 
+                        height: chartHeight,
+                        parentHeightOffset: 0, 
+                        toolbar: { show: false },
+                        fontFamily: fontFamily
+                    },
+                    colors: ['#f59e0b', '#9ca3af'],
+                    stroke: { 
+                        curve: 'smooth', 
+                        width: window.innerWidth < 640 ? 2 : 3 
+                    },
+                    xaxis: { 
+                        categories: ['Quiz 1', 'Quiz 2', 'Midterm', 'Quiz 3', 'Project', 'Final'], 
+                        labels: { 
+                            style: { colors: colors.text, fontSize: fontSize.axis },
+                            rotate: window.innerWidth < 640 ? -45 : 0
+                        } 
+                    }
+                });
+                charts.scores.render();
+            }
+
+            // 6. Time by Subject (Donut)
+            if (document.querySelector("#chart-distribution")) {
+                charts.distribution = new ApexCharts(document.querySelector("#chart-distribution"), {
+                    ...commonOptions,
+                    series: [44, 55, 13, 33],
+                    chart: { 
+                        type: 'donut', 
+                        height: window.innerWidth < 640 ? 280 : chartHeight,
+                        fontFamily: fontFamily
+                    },
+                    labels: ['Frontend', 'Backend', 'Design', 'Marketing'],
+                    colors: ['#6366f1', '#ec4899', '#8b5cf6', '#14b8a6'],
+                    legend: { 
+                        position: 'bottom', 
+                        labels: { colors: colors.text },
+                        fontSize: fontSize.legend
+                    },
+                    plotOptions: {
+                        pie: {
+                            donut: {
+                                size: window.innerWidth < 640 ? '65%' : '70%',
+                                labels: {
+                                    show: true,
+                                    name: { fontSize: fontSize.dataLabel },
+                                    value: { fontSize: fontSize.title }
+                                }
+                            }
+                        }
+                    }
+                });
+                charts.distribution.render();
+            }
+
+            // 7. Assignments (Stacked Bar)
+            if (document.querySelector("#chart-assignments")) {
+                charts.assignments = new ApexCharts(document.querySelector("#chart-assignments"), {
+                    ...commonOptions,
+                    series: [
+                        { name: 'Completed', data: [44, 55, 41] },
+                        { name: 'Pending', data: [13, 23, 20] }
+                    ],
+                    chart: { 
+                        type: 'bar', 
+                        height: chartHeight,
+                        stacked: true, 
+                        parentHeightOffset: 0, 
+                        toolbar: { show: false },
+                        fontFamily: fontFamily
+                    },
+                    colors: ['#10b981', '#ef4444'],
+                    plotOptions: { 
+                        bar: { 
+                            horizontal: false, 
+                            borderRadius: 4,
+                            columnWidth: window.innerWidth < 640 ? '70%' : '50%'
+                        } 
+                    },
+                    xaxis: { 
+                        categories: ['Week 1', 'Week 2', 'Week 3'], 
+                        labels: { 
+                            style: { colors: colors.text, fontSize: fontSize.axis },
+                            rotate: 0
+                        } 
+                    }
+                });
+                charts.assignments.render();
+            }
+
+            // 8. Focus Trend (Line with different style)
+            if (document.querySelector("#chart-focus")) {
+                charts.focus = new ApexCharts(document.querySelector("#chart-focus"), {
+                    ...commonOptions,
+                    series: [{ name: 'Focus Score', data: [100, 90, 85, 95, 105, 110, 100] }],
+                    chart: { 
+                        type: 'line', 
+                        height: chartHeight,
+                        parentHeightOffset: 0, 
+                        toolbar: { show: false },
+                        fontFamily: fontFamily
+                    },
+                    colors: ['#8b5cf6'],
+                    stroke: { 
+                        width: window.innerWidth < 640 ? 3 : 4, 
+                        curve: 'step' 
+                    },
+                    xaxis: { 
+                        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], 
+                        labels: { 
+                            style: { colors: colors.text, fontSize: fontSize.axis },
+                            rotate: 0
+                        } 
+                    }
+                });
+                charts.focus.render();
+            }
+        }
+
+        // Initialize Charts
+        document.addEventListener('DOMContentLoaded', initCharts);
+
+        // Handle Window Resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Destroy and reinitialize charts on significant resize
+                Object.values(charts).forEach(chart => {
+                    if (chart) chart.destroy();
+                });
+                initCharts();
+            }, 250);
+        });
+
+        // Update Charts on Theme Toggle
+        const themeBtn = document.getElementById('theme-toggle');
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                setTimeout(() => {
+                    const colors = getChartColors();
+                    const isDark = document.documentElement.classList.contains('dark');
+                    const themeMode = isDark ? 'dark' : 'light';
+
+                    Object.values(charts).forEach(chart => {
+                        if (chart) {
+                            chart.updateOptions({
+                                theme: { mode: themeMode },
+                                grid: { borderColor: colors.grid },
+                                xaxis: { labels: { style: { colors: colors.text } } },
+                                yaxis: { labels: { style: { colors: colors.text } } },
+                                tooltip: { theme: themeMode },
+                                legend: { labels: { colors: colors.text } },
+                                plotOptions: {
+                                    radialBar: {
+                                        track: { background: colors.grid },
+                                        dataLabels: {
+                                            name: { color: colors.text },
+                                            value: { color: isDark ? '#fff' : '#111827' }
+                                        }
+                                    },
+                                    radar: {
+                                        polygons: {
+                                            strokeColors: colors.grid
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }, 100);
             });
         }
     </script>

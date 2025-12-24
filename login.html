@@ -253,240 +253,349 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .container-custom {
-                min-height: 800px;
+                min-height: auto;
+                height: auto;
                 max-width: 100%;
+                box-shadow: none;
+                background: transparent;
             }
 
             .form-container {
-                width: 100% !important;
-                height: 50%;
                 position: relative;
-                top: auto;
-                left: auto !important;
-                right: auto !important;
-                transform: none !important;
+                width: 100% !important;
+                height: auto;
+                transition: none;
+                opacity: 0;
+                display: none;
+                background: white;
+                border-radius: 24px;
+                padding: 40px 20px;
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
             }
 
+            .dark .form-container {
+                background: #111827;
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            }
+
+            /* Default State (Sign In Visible) */
             .sign-in-container {
-                order: 1;
+                opacity: 1;
+                display: flex;
+                z-index: 10;
             }
 
             .sign-up-container {
-                order: 2;
-                opacity: 1 !important;
-                z-index: 1 !important;
-                animation: none !important;
+                opacity: 0;
+                display: none;
+                z-index: 1;
+            }
+
+            /* Active State (Sign Up Visible) */
+            .container-custom.right-panel-active .sign-in-container {
+                transform: none !important;
+                opacity: 0;
+                display: none;
+            }
+
+            .container-custom.right-panel-active .sign-up-container {
+                transform: none !important;
+                opacity: 1;
+                display: flex;
+                animation: fadeIn 0.5s;
+            }
+
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
 
             .overlay-container {
                 display: none;
             }
 
-            /* Hide the overlay logic on mobile and just stack them */
-            .container-custom.right-panel-active .sign-in-container {
-                transform: none !important;
+            /* Mobile Toggle Buttons */
+            .mobile-toggle {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+                background: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(10px);
+                padding: 5px;
+                border-radius: 12px;
+                border: 1px solid rgba(229, 231, 235, 0.5);
             }
 
-            .container-custom.right-panel-active .sign-up-container {
-                transform: none !important;
+            .dark .mobile-toggle {
+                background: rgba(17, 24, 39, 0.5);
+                border-color: rgba(55, 65, 81, 0.5);
+            }
+
+            .mobile-toggle-btn {
+                padding: 10px 24px;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 14px;
+                transition: all 0.3s ease;
+                color: #6B7280;
+                width: 50%;
+                text-align: center;
+            }
+
+            .dark .mobile-toggle-btn {
+                color: #9CA3AF;
+            }
+
+            .mobile-toggle-btn.active {
+                background: #4f46e5;
+                color: white;
+                box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
             }
         }
     </style>
 </head>
 
-<body
-    class="bg-gray-100 dark:bg-dark-bg flex items-center justify-center min-h-screen p-4 font-sans transition-colors duration-300">
+<body class="bg-gray-100 dark:bg-dark-bg min-h-screen font-sans transition-colors duration-300">
 
-    <!-- Theme & Direction Toggles (Absolute) -->
-    <div class="absolute top-6 right-6 flex items-center gap-4 z-50">
-        <button id="direction-toggle"
-            class="p-2.5 rounded-xl bg-white dark:bg-dark-card shadow-lg text-gray-500 hover:text-primary-600 transition-colors">
-            <span id="direction-icon" class="text-xl">🌐</span>
-        </button>
-        <button id="theme-toggle"
-            class="p-2.5 rounded-xl bg-white dark:bg-dark-card shadow-lg text-gray-500 hover:text-primary-600 transition-colors">
-            <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
-            <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707M12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4 pt-24 relative">
+
+        <!-- Theme & Direction Toggles (Absolute) -->
+        <div class="absolute top-6 right-6 flex items-center gap-4 z-50">
+            <button id="direction-toggle"
+                class="p-2.5 rounded-xl bg-white dark:bg-dark-card shadow-lg text-gray-500 hover:text-primary-600 transition-colors">
+                <span id="direction-icon" class="text-xl">🌐</span>
+            </button>
+            <button id="theme-toggle"
+                class="p-2.5 rounded-xl bg-white dark:bg-dark-card shadow-lg text-gray-500 hover:text-primary-600 transition-colors">
+                <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                    </path>
+                </svg>
+                <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707M12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Home Link -->
+        <a href="index.html"
+            class="absolute top-6 left-6 flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 transition-colors z-50">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
                 </path>
             </svg>
-        </button>
-    </div>
+            <span class="font-semibold">Back to Home</span>
+        </a>
 
-    <!-- Home Link -->
-    <a href="index.html"
-        class="absolute top-6 left-6 flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 transition-colors z-50">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
-            </path>
-        </svg>
-        <span class="font-semibold">Back to Home</span>
-    </a>
-
-    <div class="container-custom bg-white dark:bg-dark-card rounded-3xl shadow-2xl" id="container">
-
-        <!-- Sign Up Form -->
-        <div class="form-container sign-up-container">
-            <form action="#"
-                class="flex flex-col items-center justify-center h-full px-12 bg-white dark:bg-dark-card text-center">
-                <h1 class="font-heading font-bold text-3xl mb-4 text-gray-900 dark:text-white">Create Account</h1>
-                <div class="flex gap-4 mb-4">
-                    <a href="#"
-                        class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.457z" />
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
-                        </svg>
-                    </a>
-                </div>
-                <span class="text-sm text-gray-500 mb-4">or use your email for registration</span>
-                <input type="text" placeholder="Name"
-                    class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-3 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
-                <input type="email" placeholder="Email"
-                    class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-3 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
-                <input type="password" placeholder="Password"
-                    class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-4 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
-                <button
-                    class="px-8 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm uppercase tracking-wider transition-transform active:scale-95 shadow-lg shadow-primary-500/30">Sign
-                    Up</button>
-            </form>
-        </div>
-
-        <!-- Sign In Form -->
-        <div class="form-container sign-in-container">
-            <form action="#"
-                class="flex flex-col items-center justify-center h-full px-12 bg-white dark:bg-dark-card text-center">
-                <h1 class="font-heading font-bold text-3xl mb-4 text-gray-900 dark:text-white">Sign in</h1>
-                <div class="flex gap-4 mb-4">
-                    <a href="#"
-                        class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.457z" />
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
-                        </svg>
-                    </a>
-                </div>
-                <span class="text-sm text-gray-500 mb-4">or use your account</span>
-                <input type="email" placeholder="Email"
-                    class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-3 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
-                <input type="password" placeholder="Password"
-                    class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-4 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
-                <a href="#" class="text-xs text-gray-500 mb-6 hover:text-primary-600">Forgot your password?</a>
-                <button
-                    class="px-8 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm uppercase tracking-wider transition-transform active:scale-95 shadow-lg shadow-primary-500/30">Sign
+        <!-- Mobile Toggle Buttons Container (Visible only on mobile) -->
+        <div class="md:hidden w-full max-w-sm mb-6">
+            <div
+                class="mobile-toggle flex p-1 bg-white/50 dark:bg-black/20 backdrop-blur-md rounded-xl border border-gray-200 dark:border-gray-800">
+                <button id="mobile-signin-btn"
+                    class="mobile-toggle-btn active flex-1 py-2.5 rounded-lg text-sm font-bold transition-all">Sign
                     In</button>
-            </form>
+                <button id="mobile-signup-btn"
+                    class="mobile-toggle-btn flex-1 py-2.5 rounded-lg text-sm font-bold transition-all">Sign Up</button>
+            </div>
         </div>
 
-        <!-- Overlay -->
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1 class="font-heading font-bold text-3xl mb-4">Welcome Back!</h1>
-                    <p class="mb-8 text-white/90">To keep connected with us please login with your personal info</p>
+        <div class="container-custom bg-white dark:bg-dark-card rounded-3xl shadow-2xl" id="container">
+
+            <!-- Sign Up Form -->
+            <div class="form-container sign-up-container">
+                <form action="#"
+                    class="flex flex-col items-center justify-center h-full px-12 bg-white dark:bg-dark-card text-center">
+                    <h1 class="font-heading font-bold text-3xl mb-4 text-gray-900 dark:text-white">Create Account</h1>
+                    <div class="flex gap-4 mb-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.457z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <span class="text-sm text-gray-500 mb-4">or use your email for registration</span>
+                    <input type="text" placeholder="Name"
+                        class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-3 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
+                    <input type="email" placeholder="Email"
+                        class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-3 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
+                    <input type="password" placeholder="Password"
+                        class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-4 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
                     <button
-                        class="px-8 py-3 rounded-xl border-2 border-white text-white font-bold text-sm uppercase tracking-wider transition-colors hover:bg-white hover:text-primary-600"
-                        id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1 class="font-heading font-bold text-3xl mb-4">Hello, Friend!</h1>
-                    <p class="mb-8 text-white/90">Enter your personal details and start your journey with us</p>
+                        class="px-8 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm uppercase tracking-wider transition-transform active:scale-95 shadow-lg shadow-primary-500/30">Sign
+                        Up</button>
+                </form>
+            </div>
+
+            <!-- Sign In Form -->
+            <div class="form-container sign-in-container">
+                <form action="#"
+                    class="flex flex-col items-center justify-center h-full px-12 bg-white dark:bg-dark-card text-center">
+                    <h1 class="font-heading font-bold text-3xl mb-4 text-gray-900 dark:text-white">Sign in</h1>
+                    <div class="flex gap-4 mb-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.457z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <span class="text-sm text-gray-500 mb-4">or use your account</span>
+                    <input type="email" placeholder="Email"
+                        class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-3 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
+                    <input type="password" placeholder="Password"
+                        class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-lg px-4 py-3 mb-4 text-sm focus:ring-2 focus:ring-primary-500 outline-none text-gray-900 dark:text-white" />
+                    <a href="#" class="text-xs text-gray-500 mb-6 hover:text-primary-600">Forgot your password?</a>
                     <button
-                        class="px-8 py-3 rounded-xl border-2 border-white text-white font-bold text-sm uppercase tracking-wider transition-colors hover:bg-white hover:text-primary-600"
-                        id="signUp">Sign Up</button>
+                        class="px-8 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-sm uppercase tracking-wider transition-transform active:scale-95 shadow-lg shadow-primary-500/30">Sign
+                        In</button>
+                </form>
+            </div>
+
+            <!-- Overlay -->
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1 class="font-heading font-bold text-3xl mb-4">Welcome Back!</h1>
+                        <p class="mb-8 text-white/90">To keep connected with us please login with your personal info</p>
+                        <button
+                            class="px-8 py-3 rounded-xl border-2 border-white text-white font-bold text-sm uppercase tracking-wider transition-colors hover:bg-white hover:text-primary-600"
+                            id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1 class="font-heading font-bold text-3xl mb-4">Hello, Friend!</h1>
+                        <p class="mb-8 text-white/90">Enter your personal details and start your journey with us</p>
+                        <button
+                            class="px-8 py-3 rounded-xl border-2 border-white text-white font-bold text-sm uppercase tracking-wider transition-colors hover:bg-white hover:text-primary-600"
+                            id="signUp">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <script>
+            const signUpButton = document.getElementById('signUp');
+            const signInButton = document.getElementById('signIn');
+            const mobileSignUpBtn = document.getElementById('mobile-signup-btn');
+            const mobileSignInBtn = document.getElementById('mobile-signin-btn');
+            const container = document.getElementById('container');
+
+            // Function to switch to Sign Up
+            function switchToSignUp() {
+                container.classList.add("right-panel-active");
+                if (window.innerWidth <= 768) {
+                    mobileSignInBtn.classList.remove('active', 'bg-primary-600', 'text-white', 'shadow-lg');
+                    mobileSignUpBtn.classList.add('active', 'bg-primary-600', 'text-white', 'shadow-lg');
+                }
+            }
+
+            // Function to switch to Sign In
+            function switchToSignIn() {
+                container.classList.remove("right-panel-active");
+                if (window.innerWidth <= 768) {
+                    mobileSignUpBtn.classList.remove('active', 'bg-primary-600', 'text-white', 'shadow-lg');
+                    mobileSignInBtn.classList.add('active', 'bg-primary-600', 'text-white', 'shadow-lg');
+                }
+            }
+
+            signUpButton.addEventListener('click', switchToSignUp);
+            signInButton.addEventListener('click', switchToSignIn);
+
+            // Mobile listeners
+            if (mobileSignUpBtn) mobileSignUpBtn.addEventListener('click', switchToSignUp);
+            if (mobileSignInBtn) mobileSignInBtn.addEventListener('click', switchToSignIn);
+
+            // Initial mobile button state
+            if (window.innerWidth <= 768) {
+                mobileSignInBtn.classList.add('bg-primary-600', 'text-white', 'shadow-lg'); // Default active style
+            }
+
+            // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+
+            // Check local storage
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                if (html.classList.contains('dark')) {
+                    localStorage.theme = 'dark';
+                } else {
+                    localStorage.theme = 'light';
+                }
+            });
+
+            // Direction Toggle
+            const directionToggle = document.getElementById('direction-toggle');
+
+            // Check local storage
+            if (localStorage.dir === 'rtl') {
+                html.setAttribute('dir', 'rtl');
+            } else {
+                html.setAttribute('dir', 'ltr');
+            }
+
+            directionToggle.addEventListener('click', () => {
+                const currentDir = html.getAttribute('dir');
+                const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+                html.setAttribute('dir', newDir);
+                localStorage.dir = newDir;
+            });
+
+            // Check URL for mode
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('mode') === 'register') {
+                container.classList.add("right-panel-active");
+            }
+        </script>
+
     </div>
 
-    <script>
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
-
-        signUpButton.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
-
-        signInButton.addEventListener('click', () => {
-            container.classList.remove("right-panel-active");
-        });
-
-        // Theme Toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-
-        // Check local storage
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-        } else {
-            html.classList.remove('dark');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            if (html.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-            } else {
-                localStorage.theme = 'light';
-            }
-        });
-
-        // Direction Toggle
-        const directionToggle = document.getElementById('direction-toggle');
-
-        // Check local storage
-        if (localStorage.dir === 'rtl') {
-            html.setAttribute('dir', 'rtl');
-        } else {
-            html.setAttribute('dir', 'ltr');
-        }
-
-        directionToggle.addEventListener('click', () => {
-            const currentDir = html.getAttribute('dir');
-            const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
-            html.setAttribute('dir', newDir);
-            localStorage.dir = newDir;
-        });
-
-        // Check URL for mode
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('mode') === 'register') {
-            container.classList.add("right-panel-active");
-        }
-    </script>
 </body>
 
 </html>

@@ -180,3 +180,271 @@ html {
   display: block;
   background: transparent;
 }
+
+/* Dashboard Charts Responsive Styles */
+/* Base chart container styles */
+[id^="chart-"] {
+  min-height: 200px;
+  height: 100%;
+  width: 100% !important;
+}
+
+/* Ensure chart containers adapt properly */
+.apexcharts-canvas {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* Mobile optimization (screens < 640px) */
+@media (max-width: 639px) {
+  /* Adjust chart heights for mobile */
+  [id^="chart-"] {
+    min-height: 250px !important;
+    height: 250px !important;
+  }
+  
+  /* Smaller padding for chart cards on mobile */
+  [id^="chart-"].parent {
+    padding: 1rem !important;
+  }
+  
+  /* Make radar chart more compact on mobile */
+  #chart-skills {
+    min-height: 280px !important;
+    height: 280px !important;
+  }
+  
+  /* Adjust radial bar chart for mobile */
+  #chart-progress {
+    min-height: 220px !important;
+    height: 220px !important;
+  }
+  
+  /* Donut chart optimization */
+  #chart-distribution {
+    min-height: 280px !important;
+    height: 280px !important;
+  }
+  
+  /* Reduce font sizes in ApexCharts for mobile */
+  .apexcharts-legend-text {
+    font-size: 11px !important;
+  }
+  
+  .apexcharts-xaxis-label,
+  .apexcharts-yaxis-label {
+    font-size: 10px !important;
+  }
+}
+
+/* Tablet optimization (640px - 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  [id^="chart-"] {
+    min-height: 280px !important;
+    height: 280px !important;
+  }
+  
+  #chart-skills,
+  #chart-distribution {
+    min-height: 300px !important;
+    height: 300px !important;
+  }
+  
+  #chart-progress {
+    min-height: 250px !important;
+    height: 250px !important;
+  }
+}
+
+/* Desktop optimization (1024px+) */
+@media (min-width: 1024px) {
+  [id^="chart-"] {
+    min-height: 320px !important;
+    height: 320px !important;
+  }
+  
+  /* Maintain aspect ratio for specific charts */
+  #chart-skills,
+  #chart-distribution {
+    min-height: 320px !important;
+    height: 320px !important;
+  }
+  
+  #chart-progress {
+    min-height: 320px !important;
+    height: 320px !important;
+  }
+}
+
+/* Large desktop (1280px+) */
+@media (min-width: 1280px) {
+  [id^="chart-"] {
+    min-height: 320px !important;
+    height: 320px !important;
+  }
+}
+
+/* Extra large screens (1536px+) */
+@media (min-width: 1536px) {
+  [id^="chart-"] {
+    min-height: 350px !important;
+    height: 350px !important;
+  }
+}
+
+/* Ensure ApexCharts SVG elements scale properly */
+.apexcharts-svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Fix for chart legends wrapping on small screens */
+.apexcharts-legend {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 639px) {
+  .apexcharts-legend {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .apexcharts-legend-series {
+    margin: 2px 4px !important;
+  }
+}
+
+/* Chart tooltip improvements for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .apexcharts-tooltip {
+    font-size: 13px !important;
+    padding: 8px !important;
+  }
+}
+
+/* Admin Dashboard Charts Responsive Styles */
+/* Specific styles for admin charts */
+[id^="admin-chart-"] {
+  min-height: 250px;
+  height: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Ensure parent containers take full width */
+[id^="admin-chart-"] > div {
+  width: 100% !important;
+}
+
+.apexcharts-canvas {
+  width: 100% !important;
+}
+
+/* Mobile optimization for admin charts (screens < 640px) */
+@media (max-width: 639px) {
+  [id^="admin-chart-"] {
+    min-height: 250px !important;
+    height: 250px !important;
+  }
+  
+  /* Larger admin charts (revenue, users) */
+  #admin-chart-revenue,
+  #admin-chart-users {
+    min-height: 280px !important;
+    height: 280px !important;
+  }
+  
+  /* Grid layout adjustments */
+  .grid > [class*="col-span"] {
+    grid-column: span 1 !important;
+  }
+  
+  /* Legend positioning for pie charts on mobile */
+  #admin-chart-traffic .apexcharts-legend {
+    position: relative !important;
+    bottom: 0 !important;
+  }
+}
+
+/* Tablet optimization for admin charts (640px - 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  [id^="admin-chart-"] {
+    min-height: 280px !important;
+    height: 280px !important;
+  }
+  
+  #admin-chart-revenue,
+  #admin-chart-users {
+    min-height: 320px !important;
+    height: 320px !important;
+  }
+}
+
+/* Desktop optimization for admin charts (1024px+) */
+@media (min-width: 1024px) {
+  [id^="admin-chart-"] {
+    min-height: 300px !important;
+    height: 300px !important;
+  }
+  
+  #admin-chart-revenue,
+  #admin-chart-users {
+    min-height: 350px !important;
+    height: 350px !important;
+  }
+  
+  #admin-chart-retention {
+    min-height: 320px !important;
+    height: 320px !important;
+  }
+}
+
+/* Large desktop for admin charts (1280px+) */
+@media (min-width: 1280px) {
+  [id^="admin-chart-"] {
+    min-height: 300px !important;
+  }
+  
+  #admin-chart-revenue,
+  #admin-chart-users {
+    min-height: 350px !important;
+  }
+}
+
+/* Extra large screens for admin charts (1536px+) */
+@media (min-width: 1536px) {
+  [id^="admin-chart-"] {
+    min-height: 360px !important;
+  }
+  
+  #admin-chart-revenue,
+  #admin-chart-users {
+    min-height: 400px !important;
+  }
+  
+  #admin-chart-retention {
+    min-height: 360px !important;
+  }
+}
+
+/* Admin chart card spacing improvements */
+@media (max-width: 639px) {
+  /* Reduce padding on mobile for admin dashboard */
+  .bg-white.dark\\:bg-dark-card.p-4 {
+    padding: 1rem !important;
+  }
+}
+
+/* Ensure admin chart titles are readable on all screens */
+@media (max-width: 639px) {
+  .text-sm.md\\:text-base {
+    font-size: 0.875rem !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .text-sm.md\\:text-base {
+    font-size: 1rem !important;
+  }
+}

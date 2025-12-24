@@ -15,6 +15,8 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -66,9 +68,73 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        /* RTL Sidebar */
-        html[dir="rtl"] .lg\:translate-x-0 {
+        /* LTR Sidebar */
+        html[dir="ltr"] aside#sidebar {
+            left: 0;
+            right: auto;
+            border-right: 1px solid;
+            border-left: none;
+        }
+
+        html[dir="ltr"] aside#sidebar.sidebar-open {
             transform: translateX(0);
+        }
+
+        html[dir="ltr"] aside#sidebar:not(.sidebar-open) {
+            transform: translateX(-100%);
+        }
+
+        /* RTL Sidebar */
+        html[dir="rtl"] aside#sidebar {
+            right: 0;
+            left: auto;
+            border-left: 1px solid;
+            border-right: none;
+        }
+
+        html[dir="rtl"] aside#sidebar.sidebar-open {
+            transform: translateX(0);
+        }
+
+        html[dir="rtl"] aside#sidebar:not(.sidebar-open) {
+            transform: translateX(100%);
+        }
+
+        /* Desktop view - always visible */
+        @media (min-width: 1024px) {
+            html[dir="ltr"] aside#sidebar {
+                transform: translateX(0) !important;
+            }
+
+            html[dir="rtl"] aside#sidebar {
+                transform: translateX(0) !important;
+            }
+        }
+
+        /* Main content margin for LTR */
+        html[dir="ltr"] .main-wrapper {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        @media (min-width: 1024px) {
+            html[dir="ltr"] .main-wrapper {
+                margin-left: 16rem;
+                margin-right: 0;
+            }
+        }
+
+        /* Main content margin for RTL */
+        html[dir="rtl"] .main-wrapper {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        @media (min-width: 1024px) {
+            html[dir="rtl"] .main-wrapper {
+                margin-right: 16rem;
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -77,10 +143,10 @@
 
     <!-- Sidebar -->
     <aside id="sidebar"
-        class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-dark-card border-r border-gray-200 dark:border-gray-800 transform -translate-x-full lg:translate-x-0 sidebar-transition">
+        class="fixed inset-y-0 z-50 w-64 bg-white dark:bg-dark-card border-gray-200 dark:border-gray-800 sidebar-transition">
         <div class="h-full flex flex-col">
-            <!-- Logo -->
-            <div class="h-20 flex items-center px-6 border-b border-gray-100 dark:border-gray-800">
+            <!-- Logo and Close Button -->
+            <div class="h-20 flex items-center justify-between px-6 border-b border-gray-100 dark:border-gray-800">
                 <a href="index.html" class="flex items-center gap-3">
                     <div
                         class="w-8 h-8 flex items-center justify-center bg-gradient-to-br from-primary-600 to-secondary-600 rounded-lg">
@@ -88,6 +154,11 @@
                     </div>
                     <span class="font-heading font-bold text-xl text-gray-900 dark:text-white">Urcourse</span>
                 </a>
+                <button id="sidebar-close" class="lg:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
             </div>
 
             <!-- Navigation -->
@@ -152,7 +223,7 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="lg:ml-64 min-h-screen flex flex-col">
+    <div class="main-wrapper min-h-screen flex flex-col">
 
         <!-- Topbar -->
         <header
@@ -195,7 +266,7 @@
         </header>
 
         <!-- Content Area -->
-        <main class="flex-1 p-4 sm:p-6 lg:p-8">
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 xl:p-10 2xl:px-16">
 
             <!-- Dashboard Tab -->
             <div id="dashboard" class="tab-content">
@@ -256,6 +327,9 @@
                     </div>
                 </div>
 
+                <!-- Analytics Charts -->
+                <h2 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-6 mt-8">Performance Analytics</h2>
+
                 <!-- Recent Activity & Revenue -->
                 <div class="grid lg:grid-cols-2 gap-8">
                     <!-- Recent Activity -->
@@ -305,70 +379,59 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Revenue Chart Placeholder -->
-                    <div
-                        class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
-                        <div class="flex items-center justify-between mb-6">
-                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Revenue Overview</h3>
-                            <select
-                                class="bg-gray-50 dark:bg-gray-800 border-none rounded-lg text-xs px-2 py-1 text-gray-600 dark:text-gray-400">
-                                <option>This Week</option>
-                                <option>This Month</option>
-                                <option>This Year</option>
-                            </select>
+                <!-- Analytics & Reports (6 Charts) -->
+                <h2 class="font-heading font-bold text-xl md:text-2xl text-gray-900 dark:text-white mb-6 mt-8">Analytics & Reports
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 mb-8">
+                        <!-- Chart 1: Revenue Trend -->
+                        <div
+                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 md:col-span-2 xl:col-span-3">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300">Total Revenue</h3>
+                                <select
+                                    class="bg-gray-50 dark:bg-gray-800 border-none rounded-lg text-xs px-2 py-1 text-gray-600 dark:text-gray-400">
+                                    <option>This Year</option>
+                                </select>
+                            </div>
+                            <div id="admin-chart-revenue" class="w-full min-h-[280px] md:min-h-[320px] lg:min-h-[350px]"></div>
                         </div>
-                        <div class="h-64 flex items-end gap-2">
-                            <!-- Simple CSS Bar Chart -->
-                            <div
-                                class="w-full bg-primary-100 dark:bg-primary-900/20 rounded-t-lg relative group h-[40%]">
-                                <div
-                                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                                    $400</div>
-                                <div class="absolute bottom-0 w-full text-center text-xs text-gray-500 pb-2">Mon</div>
-                            </div>
-                            <div
-                                class="w-full bg-primary-200 dark:bg-primary-800/30 rounded-t-lg relative group h-[60%]">
-                                <div
-                                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                                    $600</div>
-                                <div class="absolute bottom-0 w-full text-center text-xs text-gray-500 pb-2">Tue</div>
-                            </div>
-                            <div
-                                class="w-full bg-primary-300 dark:bg-primary-700/40 rounded-t-lg relative group h-[30%]">
-                                <div
-                                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                                    $300</div>
-                                <div class="absolute bottom-0 w-full text-center text-xs text-gray-500 pb-2">Wed</div>
-                            </div>
-                            <div
-                                class="w-full bg-primary-400 dark:bg-primary-600/50 rounded-t-lg relative group h-[80%]">
-                                <div
-                                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                                    $800</div>
-                                <div class="absolute bottom-0 w-full text-center text-xs text-gray-500 pb-2">Thu</div>
-                            </div>
-                            <div
-                                class="w-full bg-primary-500 dark:bg-primary-500/60 rounded-t-lg relative group h-[50%]">
-                                <div
-                                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                                    $500</div>
-                                <div class="absolute bottom-0 w-full text-center text-xs text-gray-500 pb-2">Fri</div>
-                            </div>
-                            <div
-                                class="w-full bg-primary-600 dark:bg-primary-400/70 rounded-t-lg relative group h-[90%]">
-                                <div
-                                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                                    $900</div>
-                                <div class="absolute bottom-0 w-full text-center text-xs text-gray-500 pb-2">Sat</div>
-                            </div>
-                            <div
-                                class="w-full bg-primary-700 dark:bg-primary-300/80 rounded-t-lg relative group h-[70%]">
-                                <div
-                                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                                    $700</div>
-                                <div class="absolute bottom-0 w-full text-center text-xs text-gray-500 pb-2">Sun</div>
-                            </div>
+
+                        <!-- Chart 2: User Distribution -->
+                        <div
+                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">User Status</h3>
+                            <div id="admin-chart-users" class="w-full min-h-[280px] md:min-h-[320px] lg:min-h-[350px]"></div>
+                        </div>
+
+                        <!-- Chart 3: New Registrations -->
+                        <div
+                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">New Registrations</h3>
+                            <div id="admin-chart-registrations" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[300px]"></div>
+                        </div>
+
+                        <!-- Chart 4: Course Popularity -->
+                        <div
+                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">Top Courses</h3>
+                            <div id="admin-chart-courses" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[300px]"></div>
+                        </div>
+
+                        <!-- Chart 5: Traffic Sources -->
+                        <div
+                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">Traffic Sources</h3>
+                            <div id="admin-chart-traffic" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[300px]"></div>
+                        </div>
+
+                        <!-- Chart 6: Customer Retention -->
+                        <div
+                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 md:col-span-2 xl:col-span-3">
+                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">Customer Retention &
+                                Churn</h3>
+                            <div id="admin-chart-retention" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[320px]"></div>
                         </div>
                     </div>
                 </div>
@@ -563,11 +626,235 @@
 
         // Sidebar Toggle
         const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarClose = document.getElementById('sidebar-close');
         const sidebar = document.getElementById('sidebar');
 
         if (sidebarToggle) {
             sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('-translate-x-full');
+                sidebar.classList.add('sidebar-open');
+            });
+        }
+
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', () => {
+                sidebar.classList.remove('sidebar-open');
+            });
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 1024 && sidebar.classList.contains('sidebar-open')) {
+                if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.remove('sidebar-open');
+                }
+            }
+        });
+
+        // --- Admin Charts Configuration ---
+        const getAdminChartColors = () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            return {
+                text: isDark ? '#9ca3af' : '#6b7280',
+                grid: isDark ? '#374151' : '#e5e7eb',
+                bg: 'transparent'
+            };
+        };
+
+        // Responsive height function for admin charts
+        const getResponsiveChartHeight = (size = 'medium') => {
+            const width = window.innerWidth;
+            if (size === 'large') {
+                if (width < 640) return 280; // mobile
+                if (width < 768) return 320; // small tablet
+                if (width < 1024) return 350; // tablet
+                if (width < 1280) return 360; // desktop
+                if (width < 1536) return 380; // large desktop
+                return 400; // xl screens
+            } else if (size === 'medium') {
+                if (width < 640) return 260; // mobile
+                if (width < 768) return 280; // small tablet
+                if (width < 1024) return 300; // tablet
+                if (width < 1280) return 320; // desktop
+                if (width < 1536) return 340; // large desktop
+                return 360; // xl screens
+            }
+            return 280;
+        };
+
+        // Responsive font sizes
+        const getResponsiveFontSizes = () => {
+            const width = window.innerWidth;
+            if (width < 640) return { axis: 10, legend: 10, title: 11 };
+            if (width < 1024) return { axis: 11, legend: 11, title: 12 };
+            return { axis: 12, legend: 12, title: 13 };
+        };
+
+        let adminCharts = {};
+
+        function initAdminCharts() {
+            const colors = getAdminChartColors();
+            const fontSizes = getResponsiveFontSizes();
+            const fontFamily = 'Plus Jakarta Sans, sans-serif';
+
+            const commonOptions = {
+                chart: {
+                    background: 'transparent',
+                    toolbar: { show: false },
+                    animations: { enabled: true }
+                },
+                theme: { mode: document.documentElement.classList.contains('dark') ? 'dark' : 'light' },
+                dataLabels: { enabled: false },
+                grid: { borderColor: colors.grid },
+                xaxis: {
+                    labels: { style: { colors: colors.text, fontFamily: fontFamily, fontSize: fontSizes.axis + 'px' } },
+                    axisBorder: { show: false },
+                    axisTicks: { show: false }
+                },
+                yaxis: { labels: { style: { colors: colors.text, fontFamily: fontFamily, fontSize: fontSizes.axis + 'px' } } },
+                legend: { labels: { colors: colors.text }, fontFamily: fontFamily, fontSize: fontSizes.legend + 'px' },
+                tooltip: { theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light' }
+            };
+
+            // 1. Revenue Trend (Area)
+            if (document.querySelector("#admin-chart-revenue")) {
+                const revenueHeight = getResponsiveChartHeight('large');
+                adminCharts.revenue = new ApexCharts(document.querySelector("#admin-chart-revenue"), {
+                    ...commonOptions,
+                    series: [{ name: 'Revenue', data: [3000, 4500, 4200, 5800, 6100, 7500, 8200, 7900, 9100, 10500, 11200, 12500] }],
+                    chart: { type: 'area', height: revenueHeight, parentHeightOffset: 0, toolbar: { show: false } },
+                    colors: ['#10b981'],
+                    fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.7, opacityTo: 0.1, stops: [0, 90, 100] } },
+                    xaxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], labels: { style: { colors: colors.text, fontSize: fontSizes.axis + 'px' } } }
+                });
+                adminCharts.revenue.render();
+            }
+
+            // 2. User Status Distribution (Donut)
+            if (document.querySelector("#admin-chart-users")) {
+                const usersHeight = getResponsiveChartHeight('large');
+                adminCharts.users = new ApexCharts(document.querySelector("#admin-chart-users"), {
+                    ...commonOptions,
+                    series: [12400, 2500, 532],
+                    chart: { type: 'donut', height: usersHeight },
+                    labels: ['Active Students', 'Inactive', 'Instructors'],
+                    colors: ['#4f46e5', '#9ca3af', '#f59e0b'],
+                    legend: { position: 'bottom', labels: { colors: colors.text }, fontSize: fontSizes.legend + 'px' },
+                    plotOptions: {
+                        pie: {
+                            donut: {
+                                labels: {
+                                    show: true,
+                                    total: { show: true, color: colors.text, fontSize: fontSizes.title + 'px' }
+                                }
+                            }
+                        }
+                    }
+                });
+                adminCharts.users.render();
+            }
+
+            // 3. New Registrations (Line)
+            if (document.querySelector("#admin-chart-registrations")) {
+                const registrationsHeight = getResponsiveChartHeight('medium');
+                adminCharts.registrations = new ApexCharts(document.querySelector("#admin-chart-registrations"), {
+                    ...commonOptions,
+                    series: [{ name: 'New Users', data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10] }],
+                    chart: { type: 'line', height: registrationsHeight, parentHeightOffset: 0, toolbar: { show: false } },
+                    colors: ['#6366f1'],
+                    stroke: { curve: 'smooth', width: 3 },
+                    xaxis: { labels: { show: false } }
+                });
+                adminCharts.registrations.render();
+            }
+
+            // 4. Course Popularity (Bar)
+            if (document.querySelector("#admin-chart-courses")) {
+                const coursesHeight = getResponsiveChartHeight('medium');
+                adminCharts.courses = new ApexCharts(document.querySelector("#admin-chart-courses"), {
+                    ...commonOptions,
+                    series: [{ name: 'Enrolled', data: [1200, 980, 850, 600, 450] }],
+                    chart: { type: 'bar', height: coursesHeight, parentHeightOffset: 0, toolbar: { show: false } },
+                    colors: ['#0ea5e9'],
+                    plotOptions: { bar: { borderRadius: 4, horizontal: true } },
+                    xaxis: { categories: ['Web Dev', 'Python', 'Data Sci', 'UI/UX', 'Marketing'], labels: { style: { colors: colors.text, fontSize: fontSizes.axis + 'px' } } }
+                });
+                adminCharts.courses.render();
+            }
+
+            // 5. Traffic Sources (Pie)
+            if (document.querySelector("#admin-chart-traffic")) {
+                const trafficHeight = getResponsiveChartHeight('medium');
+                adminCharts.traffic = new ApexCharts(document.querySelector("#admin-chart-traffic"), {
+                    ...commonOptions,
+                    series: [55, 30, 15],
+                    chart: { type: 'pie', height: trafficHeight },
+                    labels: ['Google', 'Social Media', 'Direct'],
+                    colors: ['#ec4899', '#8b5cf6', '#14b8a6'],
+                    legend: { position: window.innerWidth < 640 ? 'bottom' : 'right', labels: { colors: colors.text }, fontSize: fontSizes.legend + 'px' }
+                });
+                adminCharts.traffic.render();
+            }
+
+            // 6. Customer Retention (Column)
+            if (document.querySelector("#admin-chart-retention")) {
+                const retentionHeight = getResponsiveChartHeight('medium');
+                adminCharts.retention = new ApexCharts(document.querySelector("#admin-chart-retention"), {
+                    ...commonOptions,
+                    series: [
+                        { name: 'Retained', data: [80, 85, 90, 88, 92, 95] },
+                        { name: 'Churned', data: [20, 15, 10, 12, 8, 5] }
+                    ],
+                    chart: { type: 'bar', height: retentionHeight, stacked: true, parentHeightOffset: 0, toolbar: { show: false } },
+                    colors: ['#10b981', '#ef4444'],
+                    plotOptions: { bar: { horizontal: false, borderRadius: 4, columnWidth: window.innerWidth < 640 ? '60%' : '40%' } },
+                    xaxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], labels: { style: { colors: colors.text, fontSize: fontSizes.axis + 'px' } } },
+                    legend: { fontSize: fontSizes.legend + 'px' }
+                });
+                adminCharts.retention.render();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initAdminCharts);
+
+        // Redraw charts on window resize for better responsiveness
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Destroy and reinitialize charts on resize
+                Object.values(adminCharts).forEach(chart => {
+                    if (chart) chart.destroy();
+                });
+                adminCharts = {};
+                initAdminCharts();
+            }, 300); // Debounce resize events
+        });
+
+        // Update Charts on Theme Toggle
+        const themeBtn = document.getElementById('theme-toggle');
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                setTimeout(() => {
+                    const colors = getAdminChartColors();
+                    const isDark = document.documentElement.classList.contains('dark');
+                    const themeMode = isDark ? 'dark' : 'light';
+
+                    Object.values(adminCharts).forEach(chart => {
+                        if (chart) {
+                            chart.updateOptions({
+                                theme: { mode: themeMode },
+                                grid: { borderColor: colors.grid },
+                                xaxis: { labels: { style: { colors: colors.text } } },
+                                yaxis: { labels: { style: { colors: colors.text } } },
+                                tooltip: { theme: themeMode },
+                                legend: { labels: { colors: colors.text } },
+                                plotOptions: {
+                                    pie: { donut: { labels: { total: { color: colors.text } } } }
+                                }
+                            });
+                        }
+                    });
+                }, 100);
             });
         }
     </script>
