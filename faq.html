@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Urcourse</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,42 +171,43 @@
                         </div>
                     </div>
 
-                <div class="hidden lg:flex items-center gap-4">
-                    <button id="direction-toggle"
-                        class="p-2.5 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <span id="direction-icon" class="text-xl">🌐</span>
-                    </button>
-                    <button id="theme-toggle"
-                        class="p-2.5 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
-                            </path>
-                        </svg>
-                        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-                            </path>
-                        </svg>
-                    </button>
-                    <div class="h-8 w-px bg-gray-200 dark:bg-gray-700"></div>
-                    <a href="login.html"
-                        class="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary-600 transition-colors">Log
-                        in</a>
-                    <a href="login.html?mode=register"
-                        class="px-5 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold shadow-lg shadow-primary-500/30 transition-all hover:scale-105 active:scale-95">Sign
-                        up</a>
-                </div>
+                    <div class="hidden lg:flex items-center gap-4">
+                        <button id="direction-toggle"
+                            class="p-2.5 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <span id="direction-icon" class="text-xl">🌐</span>
+                        </button>
+                        <button id="theme-toggle"
+                            class="p-2.5 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                            <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="h-8 w-px bg-gray-200 dark:bg-gray-700"></div>
+                        <a href="login.html"
+                            class="text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary-600 transition-colors">Log
+                            in</a>
+                        <a href="login.html?mode=register"
+                            class="px-5 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold shadow-lg shadow-primary-500/30 transition-all hover:scale-105 active:scale-95">Sign
+                            up</a>
+                    </div>
 
-                <button id="mobile-menu-btn"
-                    class="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </div>
     </nav>
 
     <!-- Mobile Menu -->
@@ -320,71 +322,103 @@
             <!-- Category 1: General Questions (5 questions) -->
             <div class="mb-12" data-aos="fade-up">
                 <h2 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </span>
                     General Questions
                 </h2>
                 <div class="space-y-4">
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
                             <span class="font-semibold text-gray-900 dark:text-white">What is Urcourse?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Urcourse is a comprehensive online learning platform offering expert-led courses across technology, business, design, and more. We provide high-quality education accessible to learners worldwide.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Urcourse is a comprehensive online learning
+                                platform offering expert-led courses across technology, business, design, and more. We
+                                provide high-quality education accessible to learners worldwide.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
                             <span class="font-semibold text-gray-900 dark:text-white">How do I get started?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Simply create a free account, browse our course catalog, and enroll in courses that interest you. You can start learning immediately after enrollment.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Simply create a free account, browse our course
+                                catalog, and enroll in courses that interest you. You can start learning immediately
+                                after enrollment.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Is Urcourse suitable for beginners?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Is Urcourse suitable for
+                                beginners?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Absolutely! We offer courses for all skill levels, from complete beginners to advanced professionals. Each course clearly indicates its difficulty level.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Absolutely! We offer courses for all skill
+                                levels, from complete beginners to advanced professionals. Each course clearly indicates
+                                its difficulty level.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Can I access courses on mobile devices?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Can I access courses on mobile
+                                devices?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes! Our platform is fully responsive and works seamlessly on smartphones, tablets, and desktop computers. Learn anytime, anywhere.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes! Our platform is fully responsive and works
+                                seamlessly on smartphones, tablets, and desktop computers. Learn anytime, anywhere.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
                             <span class="font-semibold text-gray-900 dark:text-white">Do you offer free courses?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes, we offer a selection of free courses and free trials for premium courses. Check our course catalog for free options.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes, we offer a selection of free courses and
+                                free trials for premium courses. Check our course catalog for free options.</p>
                         </div>
                     </div>
                 </div>
@@ -393,95 +427,142 @@
             <!-- Category 2: Courses & Learning (7 questions) -->
             <div class="mb-12" data-aos="fade-up">
                 <h2 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-secondary-100 dark:bg-secondary-900/50 flex items-center justify-center text-secondary-600 dark:text-secondary-400">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-secondary-100 dark:bg-secondary-900/50 flex items-center justify-center text-secondary-600 dark:text-secondary-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
                         </svg>
                     </span>
                     Courses & Learning
                 </h2>
                 <div class="space-y-4">
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">How long do I have access to a course?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">How long do I have access to a
+                                course?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Once you enroll in a course, you have lifetime access to all course materials, including future updates and additions.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Once you enroll in a course, you have lifetime
+                                access to all course materials, including future updates and additions.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Can I download course videos?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Can I download course
+                                videos?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes, premium members can download course videos for offline viewing on our mobile app.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes, premium members can download course videos
+                                for offline viewing on our mobile app.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">What if I'm not satisfied with a course?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">What if I'm not satisfied with a
+                                course?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">We offer a 30-day money-back guarantee on all courses. If you're not satisfied, request a full refund within 30 days of purchase.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">We offer a 30-day money-back guarantee on all
+                                courses. If you're not satisfied, request a full refund within 30 days of purchase.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Are there prerequisites for courses?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Are there prerequisites for
+                                courses?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Prerequisites vary by course and are clearly listed on each course page. Many beginner courses have no prerequisites.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Prerequisites vary by course and are clearly
+                                listed on each course page. Many beginner courses have no prerequisites.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">How often are courses updated?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">How often are courses
+                                updated?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Instructors regularly update courses to reflect the latest industry trends and technologies. You'll receive notifications when courses you're enrolled in are updated.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Instructors regularly update courses to reflect
+                                the latest industry trends and technologies. You'll receive notifications when courses
+                                you're enrolled in are updated.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Can I interact with instructors?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Can I interact with
+                                instructors?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes! You can ask questions in the course Q&A section, and instructors or teaching assistants will respond. Some courses also include live Q&A sessions.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes! You can ask questions in the course Q&A
+                                section, and instructors or teaching assistants will respond. Some courses also include
+                                live Q&A sessions.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
                             <span class="font-semibold text-gray-900 dark:text-white">What is a Learning Path?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">A Learning Path is a curated sequence of courses designed to take you from beginner to expert in a specific career track, such as Data Scientist or Full Stack Developer.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">A Learning Path is a curated sequence of courses
+                                designed to take you from beginner to expert in a specific career track, such as Data
+                                Scientist or Full Stack Developer.</p>
                         </div>
                     </div>
                 </div>
@@ -490,71 +571,107 @@
             <!-- Category 3: Pricing & Payment (5 questions) -->
             <div class="mb-12" data-aos="fade-up">
                 <h2 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-900/50 flex items-center justify-center text-green-600 dark:text-green-400">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-900/50 flex items-center justify-center text-green-600 dark:text-green-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
                         </svg>
                     </span>
                     Pricing & Payment
                 </h2>
                 <div class="space-y-4">
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">What payment methods do you accept?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">What payment methods do you
+                                accept?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and various local payment methods depending on your region.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">We accept all major credit cards (Visa,
+                                MasterCard, American Express), PayPal, and various local payment methods depending on
+                                your region.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Are there subscription plans?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Are there subscription
+                                plans?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes! We offer monthly and annual subscription plans that give you unlimited access to our entire course library at a discounted rate.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes! We offer monthly and annual subscription
+                                plans that give you unlimited access to our entire course library at a discounted rate.
+                            </p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Do you offer student discounts?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Do you offer student
+                                discounts?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes, we offer special discounts for students and educators. Verify your status through our student verification partner to access these discounts.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes, we offer special discounts for students and
+                                educators. Verify your status through our student verification partner to access these
+                                discounts.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Can I gift a course to someone?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Can I gift a course to
+                                someone?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Absolutely! You can purchase gift cards or directly gift specific courses to friends and family through our gifting feature.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Absolutely! You can purchase gift cards or
+                                directly gift specific courses to friends and family through our gifting feature.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Are prices in my local currency?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Are prices in my local
+                                currency?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes, prices are automatically displayed in your local currency based on your location. We support over 135 currencies worldwide.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes, prices are automatically displayed in your
+                                local currency based on your location. We support over 135 currencies worldwide.</p>
                         </div>
                     </div>
                 </div>
@@ -563,59 +680,89 @@
             <!-- Category 4: Certificates & Credentials (4 questions) -->
             <div class="mb-12" data-aos="fade-up">
                 <h2 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-yellow-100 dark:bg-yellow-900/50 flex items-center justify-center text-yellow-600 dark:text-yellow-400">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-yellow-100 dark:bg-yellow-900/50 flex items-center justify-center text-yellow-600 dark:text-yellow-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                            </path>
                         </svg>
                     </span>
                     Certificates & Credentials
                 </h2>
                 <div class="space-y-4">
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Do I get a certificate after completing a course?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Do I get a certificate after
+                                completing a course?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes! Upon successful completion of a course, you'll receive a verifiable certificate of completion that you can share on LinkedIn and add to your resume.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes! Upon successful completion of a course,
+                                you'll receive a verifiable certificate of completion that you can share on LinkedIn and
+                                add to your resume.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Are certificates accredited?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Are certificates
+                                accredited?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">While our certificates are not accredited by traditional academic institutions, they are recognized by many employers and demonstrate your commitment to professional development.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">While our certificates are not accredited by
+                                traditional academic institutions, they are recognized by many employers and demonstrate
+                                your commitment to professional development.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Can employers verify my certificate?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Can employers verify my
+                                certificate?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes, each certificate includes a unique verification code that employers can use to verify its authenticity on our website.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes, each certificate includes a unique
+                                verification code that employers can use to verify its authenticity on our website.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">How do I share my certificate on LinkedIn?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">How do I share my certificate on
+                                LinkedIn?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Each certificate page includes a "Share on LinkedIn" button that automatically adds the certificate to your LinkedIn profile with all relevant details.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Each certificate page includes a "Share on
+                                LinkedIn" button that automatically adds the certificate to your LinkedIn profile with
+                                all relevant details.</p>
                         </div>
                     </div>
                 </div>
@@ -624,59 +771,88 @@
             <!-- Category 5: Technical Support (4 questions) -->
             <div class="mb-12" data-aos="fade-up">
                 <h2 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-900/50 flex items-center justify-center text-red-600 dark:text-red-400">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-900/50 flex items-center justify-center text-red-600 dark:text-red-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
                         </svg>
                     </span>
                     Technical Support
                 </h2>
                 <div class="space-y-4">
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">What browsers are supported?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">What browsers are
+                                supported?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">We support the latest versions of Chrome, Firefox, Safari, and Edge. For the best experience, we recommend using Chrome or Firefox.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">We support the latest versions of Chrome,
+                                Firefox, Safari, and Edge. For the best experience, we recommend using Chrome or
+                                Firefox.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">I'm having video playback issues. What should I do?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">I'm having video playback issues.
+                                What should I do?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Try clearing your browser cache, disabling browser extensions, or switching to a different browser. If issues persist, contact our support team.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Try clearing your browser cache, disabling
+                                browser extensions, or switching to a different browser. If issues persist, contact our
+                                support team.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">How do I contact customer support?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">How do I contact customer
+                                support?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">You can reach our support team 24/7 through live chat, email at support@urcourse.com, or by calling 7200754566.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">You can reach our support team 24/7 through live
+                                chat, email at support@urcourse.com, or by calling 7200754566.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
                             <span class="font-semibold text-gray-900 dark:text-white">Is my data secure?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes, we use industry-standard encryption and security measures to protect your personal information and payment data. We are GDPR and CCPA compliant.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes, we use industry-standard encryption and
+                                security measures to protect your personal information and payment data. We are GDPR and
+                                CCPA compliant.</p>
                         </div>
                     </div>
                 </div>
@@ -685,47 +861,68 @@
             <!-- Category 6: Account Management (3 questions) -->
             <div class="mb-12" data-aos="fade-up">
                 <h2 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center text-purple-600 dark:text-purple-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                         </svg>
                     </span>
                     Account Management
                 </h2>
                 <div class="space-y-4">
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
                             <span class="font-semibold text-gray-900 dark:text-white">How do I reset my password?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Click "Forgot Password" on the login page, enter your email address, and follow the instructions sent to your email to reset your password.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Click "Forgot Password" on the login page, enter
+                                your email address, and follow the instructions sent to your email to reset your
+                                password.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Can I change my email address?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Can I change my email
+                                address?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes, you can update your email address in your account settings. You'll need to verify the new email address before the change takes effect.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes, you can update your email address in your
+                                account settings. You'll need to verify the new email address before the change takes
+                                effect.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
                             <span class="font-semibold text-gray-900 dark:text-white">How do I delete my account?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">You can request account deletion from your account settings. Note that this action is permanent and will remove all your course progress and certificates.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">You can request account deletion from your
+                                account settings. Note that this action is permanent and will remove all your course
+                                progress and certificates.</p>
                         </div>
                     </div>
                 </div>
@@ -734,40 +931,57 @@
             <!-- Category 7: Instructors & Teaching (2 questions) -->
             <div class="mb-12" data-aos="fade-up">
                 <h2 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
                         </svg>
                     </span>
                     Instructors & Teaching
                 </h2>
                 <div class="space-y-4">
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">Can I become an instructor on Urcourse?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">Can I become an instructor on
+                                Urcourse?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Yes! We welcome expert instructors. Apply through our "Teach on Urcourse" page. We'll review your application and provide guidance on creating your first course.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Yes! We welcome expert instructors. Apply
+                                through our "Teach on Urcourse" page. We'll review your application and provide guidance
+                                on creating your first course.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
-                            <span class="font-semibold text-gray-900 dark:text-white">How much do instructors earn?</span>
-                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        <button
+                            class="w-full flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-left">
+                            <span class="font-semibold text-gray-900 dark:text-white">How much do instructors
+                                earn?</span>
+                            <svg class="accordion-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
-                            <p class="text-gray-600 dark:text-gray-300">Instructors earn a revenue share from course sales. The exact percentage depends on various factors including promotional support and course performance. Top instructors earn six figures annually.</p>
+                        <div
+                            class="accordion-content hidden p-5 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-gray-700">
+                            <p class="text-gray-600 dark:text-gray-300">Instructors earn a revenue share from course
+                                sales. The exact percentage depends on various factors including promotional support and
+                                course performance. Top instructors earn six figures annually.</p>
                         </div>
                     </div>
                 </div>
             </div>
-</div>
+        </div>
     </section>
 
     <!-- Footer (Same as index.html) -->

@@ -10,6 +10,7 @@ class EducationWebsite {
         this.initDirection();
         this.initNavigation();
         this.initMobileMenu();
+        this.initActiveLink();
         this.initCounters();
         this.bindEvents();
     }
@@ -38,7 +39,7 @@ class EducationWebsite {
         this.currentDir = this.currentDir === 'ltr' ? 'rtl' : 'ltr';
         document.documentElement.setAttribute('dir', this.currentDir);
         localStorage.setItem('direction', this.currentDir);
-        
+
         // Update mobile menu position when direction changes
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenu) {
@@ -93,6 +94,50 @@ class EducationWebsite {
                         menu.classList.add('invisible');
                     }, 300);
                 });
+            }
+        });
+    }
+
+    initActiveLink() {
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('#navbar a, #mobile-menu a');
+        const dropdownBtns = document.querySelectorAll('.group button, .mobile-dropdown-btn');
+
+        // First, reset all to inactive state
+        [...navLinks, ...dropdownBtns].forEach(el => {
+            el.classList.remove('text-primary-600', 'dark:text-primary-400');
+            el.classList.add('text-gray-600', 'dark:text-gray-300');
+        });
+
+        // Highlight matching link and its parents
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPath || (currentPath === 'index.html' && href === 'index2.html') || (currentPath === 'index2.html' && href === 'index.html')) {
+                // Special case for home styles - highlight "Home" dropdown if either index is active
+                if (href === currentPath) {
+                    link.classList.add('text-primary-600', 'dark:text-primary-400');
+                    link.classList.remove('text-gray-600', 'dark:text-gray-300');
+                }
+
+                // Desktop dropdown parent
+                const dropdown = link.closest('.group');
+                if (dropdown) {
+                    const btn = dropdown.querySelector('button');
+                    if (btn) {
+                        btn.classList.add('text-primary-600', 'dark:text-primary-400');
+                        btn.classList.remove('text-gray-600', 'dark:text-gray-300');
+                    }
+                }
+
+                // Mobile dropdown parent
+                const mobileDropdownContent = link.closest('div[class*="hidden"]');
+                if (mobileDropdownContent) {
+                    const mobileBtn = mobileDropdownContent.previousElementSibling;
+                    if (mobileBtn && mobileBtn.classList.contains('mobile-dropdown-btn')) {
+                        mobileBtn.classList.add('text-primary-600', 'dark:text-primary-400');
+                        mobileBtn.classList.remove('text-gray-600', 'dark:text-gray-300');
+                    }
+                }
             }
         });
     }

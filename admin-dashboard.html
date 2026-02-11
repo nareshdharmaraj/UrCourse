@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Urcourse</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -154,9 +155,11 @@
                     </div>
                     <span class="font-heading font-bold text-xl text-gray-900 dark:text-white">Urcourse</span>
                 </a>
-                <button id="sidebar-close" class="lg:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                <button id="sidebar-close"
+                    class="lg:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
             </div>
@@ -328,7 +331,8 @@
                 </div>
 
                 <!-- Analytics Charts -->
-                <h2 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-6 mt-8">Performance Analytics</h2>
+                <h2 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-6 mt-8">Performance Analytics
+                </h2>
 
                 <!-- Recent Activity & Revenue -->
                 <div class="grid lg:grid-cols-2 gap-8">
@@ -382,216 +386,227 @@
                 </div>
 
                 <!-- Analytics & Reports (6 Charts) -->
-                <h2 class="font-heading font-bold text-xl md:text-2xl text-gray-900 dark:text-white mb-6 mt-8">Analytics & Reports
+                <h2 class="font-heading font-bold text-xl md:text-2xl text-gray-900 dark:text-white mb-6 mt-8">Analytics
+                    & Reports
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 mb-8">
-                        <!-- Chart 1: Revenue Trend -->
-                        <div
-                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 md:col-span-2 xl:col-span-3">
-                            <div class="flex items-center justify-between mb-4">
-                                <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300">Total Revenue</h3>
-                                <select
-                                    class="bg-gray-50 dark:bg-gray-800 border-none rounded-lg text-xs px-2 py-1 text-gray-600 dark:text-gray-400">
-                                    <option>This Year</option>
-                                </select>
-                            </div>
-                            <div id="admin-chart-revenue" class="w-full min-h-[280px] md:min-h-[320px] lg:min-h-[350px]"></div>
+                    <!-- Chart 1: Revenue Trend -->
+                    <div
+                        class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 md:col-span-2 xl:col-span-3">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300">Total Revenue
+                            </h3>
+                            <select
+                                class="bg-gray-50 dark:bg-gray-800 border-none rounded-lg text-xs px-2 py-1 text-gray-600 dark:text-gray-400">
+                                <option>This Year</option>
+                            </select>
                         </div>
-
-                        <!-- Chart 2: User Distribution -->
-                        <div
-                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
-                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">User Status</h3>
-                            <div id="admin-chart-users" class="w-full min-h-[280px] md:min-h-[320px] lg:min-h-[350px]"></div>
+                        <div id="admin-chart-revenue" class="w-full min-h-[280px] md:min-h-[320px] lg:min-h-[350px]">
                         </div>
+                    </div>
 
-                        <!-- Chart 3: New Registrations -->
-                        <div
-                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
-                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">New Registrations</h3>
-                            <div id="admin-chart-registrations" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[300px]"></div>
+                    <!-- Chart 2: User Distribution -->
+                    <div
+                        class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">User Status
+                        </h3>
+                        <div id="admin-chart-users" class="w-full min-h-[280px] md:min-h-[320px] lg:min-h-[350px]">
                         </div>
+                    </div>
 
-                        <!-- Chart 4: Course Popularity -->
-                        <div
-                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
-                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">Top Courses</h3>
-                            <div id="admin-chart-courses" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[300px]"></div>
+                    <!-- Chart 3: New Registrations -->
+                    <div
+                        class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">New
+                            Registrations</h3>
+                        <div id="admin-chart-registrations"
+                            class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[300px]"></div>
+                    </div>
+
+                    <!-- Chart 4: Course Popularity -->
+                    <div
+                        class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">Top Courses
+                        </h3>
+                        <div id="admin-chart-courses" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[300px]">
                         </div>
+                    </div>
 
-                        <!-- Chart 5: Traffic Sources -->
-                        <div
-                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
-                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">Traffic Sources</h3>
-                            <div id="admin-chart-traffic" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[300px]"></div>
+                    <!-- Chart 5: Traffic Sources -->
+                    <div
+                        class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">Traffic Sources
+                        </h3>
+                        <div id="admin-chart-traffic" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[300px]">
                         </div>
+                    </div>
 
-                        <!-- Chart 6: Customer Retention -->
-                        <div
-                            class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 md:col-span-2 xl:col-span-3">
-                            <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">Customer Retention &
-                                Churn</h3>
-                            <div id="admin-chart-retention" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[320px]"></div>
+                    <!-- Chart 6: Customer Retention -->
+                    <div
+                        class="bg-white dark:bg-dark-card p-4 md:p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 md:col-span-2 xl:col-span-3">
+                        <h3 class="text-sm md:text-base font-bold text-gray-700 dark:text-gray-300 mb-4">Customer
+                            Retention &
+                            Churn</h3>
+                        <div id="admin-chart-retention" class="w-full min-h-[250px] md:min-h-[280px] lg:min-h-[320px]">
                         </div>
                     </div>
                 </div>
             </div>
+    </div>
 
-            <!-- Users Tab -->
-            <div id="users" class="tab-content hidden">
-                <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">User Management</h1>
-                <div
-                    class="bg-white dark:bg-dark-card rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left">
-                            <thead class="bg-gray-50 dark:bg-gray-800">
-                                <tr>
-                                    <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">User
-                                    </th>
-                                    <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Role
-                                    </th>
-                                    <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Status
-                                    </th>
-                                    <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Actions
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-                                <tr>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center gap-3">
-                                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                                alt="User" class="w-8 h-8 rounded-full">
-                                            <div>
-                                                <p class="font-medium text-gray-900 dark:text-white">Alex Johnson</p>
-                                                <p class="text-xs text-gray-500">alex@example.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">Student</td>
-                                    <td class="px-6 py-4"><span
-                                            class="px-2 py-1 rounded-full bg-green-100 text-green-600 text-xs font-medium">Active</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <button
-                                            class="text-primary-600 hover:text-primary-700 font-medium text-sm">Edit</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center gap-3">
-                                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                                alt="User" class="w-8 h-8 rounded-full">
-                                            <div>
-                                                <p class="font-medium text-gray-900 dark:text-white">Sarah Smith</p>
-                                                <p class="text-xs text-gray-500">sarah@example.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">Instructor</td>
-                                    <td class="px-6 py-4"><span
-                                            class="px-2 py-1 rounded-full bg-green-100 text-green-600 text-xs font-medium">Active</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <button
-                                            class="text-primary-600 hover:text-primary-700 font-medium text-sm">Edit</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <!-- Users Tab -->
+    <div id="users" class="tab-content hidden">
+        <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">User Management</h1>
+        <div
+            class="bg-white dark:bg-dark-card rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50 dark:bg-gray-800">
+                        <tr>
+                            <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">User
+                            </th>
+                            <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Role
+                            </th>
+                            <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Status
+                            </th>
+                            <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                        <tr>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                        alt="User" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-medium text-gray-900 dark:text-white">Alex Johnson</p>
+                                        <p class="text-xs text-gray-500">alex@example.com</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">Student</td>
+                            <td class="px-6 py-4"><span
+                                    class="px-2 py-1 rounded-full bg-green-100 text-green-600 text-xs font-medium">Active</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <button
+                                    class="text-primary-600 hover:text-primary-700 font-medium text-sm">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                        alt="User" class="w-8 h-8 rounded-full">
+                                    <div>
+                                        <p class="font-medium text-gray-900 dark:text-white">Sarah Smith</p>
+                                        <p class="text-xs text-gray-500">sarah@example.com</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">Instructor</td>
+                            <td class="px-6 py-4"><span
+                                    class="px-2 py-1 rounded-full bg-green-100 text-green-600 text-xs font-medium">Active</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <button
+                                    class="text-primary-600 hover:text-primary-700 font-medium text-sm">Edit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+    </div>
 
-            <!-- Courses Tab -->
-            <div id="courses" class="tab-content hidden">
-                <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">Course Management</h1>
-                <div
-                    class="bg-white dark:bg-dark-card rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left">
-                            <thead class="bg-gray-50 dark:bg-gray-800">
-                                <tr>
-                                    <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Course
-                                    </th>
-                                    <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">
-                                        Instructor</th>
-                                    <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">
-                                        Students</th>
-                                    <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Price
-                                    </th>
-                                    <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Actions
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-                                <tr>
-                                    <td class="px-6 py-4">
-                                        <p class="font-medium text-gray-900 dark:text-white">Web Development Bootcamp
-                                        </p>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">Dr. Angela</td>
-                                    <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">2,543</td>
-                                    <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">$99</td>
-                                    <td class="px-6 py-4">
-                                        <button
-                                            class="text-primary-600 hover:text-primary-700 font-medium text-sm mr-2">Edit</button>
-                                        <button
-                                            class="text-red-600 hover:text-red-700 font-medium text-sm">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4">
-                                        <p class="font-medium text-gray-900 dark:text-white">Data Science Fundamentals
-                                        </p>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">Jose Portilla</td>
-                                    <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">1,820</td>
-                                    <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">$129</td>
-                                    <td class="px-6 py-4">
-                                        <button
-                                            class="text-primary-600 hover:text-primary-700 font-medium text-sm mr-2">Edit</button>
-                                        <button
-                                            class="text-red-600 hover:text-red-700 font-medium text-sm">Delete</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <!-- Courses Tab -->
+    <div id="courses" class="tab-content hidden">
+        <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">Course Management</h1>
+        <div
+            class="bg-white dark:bg-dark-card rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-50 dark:bg-gray-800">
+                        <tr>
+                            <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Course
+                            </th>
+                            <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">
+                                Instructor</th>
+                            <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">
+                                Students</th>
+                            <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Price
+                            </th>
+                            <th class="px-6 py-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                        <tr>
+                            <td class="px-6 py-4">
+                                <p class="font-medium text-gray-900 dark:text-white">Web Development Bootcamp
+                                </p>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">Dr. Angela</td>
+                            <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">2,543</td>
+                            <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">$99</td>
+                            <td class="px-6 py-4">
+                                <button
+                                    class="text-primary-600 hover:text-primary-700 font-medium text-sm mr-2">Edit</button>
+                                <button class="text-red-600 hover:text-red-700 font-medium text-sm">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4">
+                                <p class="font-medium text-gray-900 dark:text-white">Data Science Fundamentals
+                                </p>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">Jose Portilla</td>
+                            <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">1,820</td>
+                            <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">$129</td>
+                            <td class="px-6 py-4">
+                                <button
+                                    class="text-primary-600 hover:text-primary-700 font-medium text-sm mr-2">Edit</button>
+                                <button class="text-red-600 hover:text-red-700 font-medium text-sm">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+    </div>
 
-            <!-- Settings Tab -->
-            <div id="settings" class="tab-content hidden">
-                <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">Site Settings</h1>
-                <div
-                    class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 max-w-2xl">
-                    <form>
-                        <div class="mb-6">
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Site
-                                Name</label>
-                            <input type="text" value="Urcourse"
-                                class="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 text-gray-900 dark:text-white">
-                        </div>
-                        <div class="mb-6">
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Contact
-                                Email</label>
-                            <input type="email" value="admin@urcourse.com"
-                                class="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 text-gray-900 dark:text-white">
-                        </div>
-                        <div class="flex items-center gap-2 mb-6">
-                            <input type="checkbox" checked
-                                class="w-4 h-4 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
-                            <label class="text-sm text-gray-700 dark:text-gray-300">Enable User Registration</label>
-                        </div>
-                        <button
-                            class="px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold transition-colors">Save
-                            Changes</button>
-                    </form>
+    <!-- Settings Tab -->
+    <div id="settings" class="tab-content hidden">
+        <h1 class="font-heading font-bold text-2xl text-gray-900 dark:text-white mb-6">Site Settings</h1>
+        <div
+            class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 max-w-2xl">
+            <form>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Site
+                        Name</label>
+                    <input type="text" value="Urcourse"
+                        class="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 text-gray-900 dark:text-white">
                 </div>
-            </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Contact
+                        Email</label>
+                    <input type="email" value="admin@urcourse.com"
+                        class="w-full bg-gray-50 dark:bg-gray-800 border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 text-gray-900 dark:text-white">
+                </div>
+                <div class="flex items-center gap-2 mb-6">
+                    <input type="checkbox" checked
+                        class="w-4 h-4 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                    <label class="text-sm text-gray-700 dark:text-gray-300">Enable User Registration</label>
+                </div>
+                <button
+                    class="px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold transition-colors">Save
+                    Changes</button>
+            </form>
+        </div>
+    </div>
 
-        </main>
+    </main>
     </div>
 
     <script src="assets/js/main.js"></script>

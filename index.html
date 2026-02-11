@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urcourse - Master Your Future</title>
     <meta name="description" content="Premium online education platform for professionals.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,6 +120,7 @@
         .text-gradient-primary {
             background: linear-gradient(to right, #4f46e5, #c026d3);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     </style>
@@ -155,7 +157,7 @@
                     </span>
                 </a>
 
-                <div class="hidden lg:flex items-center gap-8">
+                <div class="hidden lg:flex items-center gap-4 xl:gap-8">
                     <!-- Home Dropdown -->
                     <div class="relative group">
                         <button
@@ -218,7 +220,7 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:flex items-center gap-4">
+                <div class="hidden lg:flex items-center gap-2 xl:gap-4">
                     <button id="direction-toggle"
                         class="p-2.5 rounded-xl text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                         <span id="direction-icon" class="text-xl">🌐</span>
@@ -358,23 +360,23 @@
                         <span class="text-sm font-medium text-gray-600 dark:text-gray-300">New courses available</span>
                     </div>
 
-                    <h1 class="font-heading font-extrabold text-5xl lg:text-7xl leading-tight mb-6">
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-7xl leading-tight mb-6">
                         Unlock Your <br>
                         <span class="text-gradient-primary">True Potential</span>
                     </h1>
 
-                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed max-w-lg">
+                    <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed max-w-lg">
                         Master in-demand skills with our premium courses. Learn from industry experts and take your
                         career to the next level.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 mb-12">
                         <a href="courses.html"
-                            class="px-8 py-4 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold text-lg shadow-lg shadow-primary-500/30 transition-all hover:scale-105 active:scale-95 text-center">
+                            class="w-full sm:w-auto px-6 sm:px-8 py-4 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold text-lg shadow-lg shadow-primary-500/30 transition-all hover:scale-105 active:scale-95 text-center">
                             Explore Courses
                         </a>
                         <a href="#how-it-works"
-                            class="px-8 py-4 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-semibold text-lg border border-gray-200 dark:border-gray-700 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+                            class="w-full sm:w-auto px-6 sm:px-8 py-4 rounded-xl bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-semibold text-lg border border-gray-200 dark:border-gray-700 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
@@ -386,19 +388,19 @@
                         </a>
                     </div>
 
-                    <div class="flex items-center gap-8">
-                        <div>
-                            <p class="text-3xl font-bold text-gray-900 dark:text-white">50k+</p>
+                    <div class="flex items-center gap-4 sm:gap-8 overflow-x-auto pb-4 sm:pb-0">
+                        <div class="flex-shrink-0">
+                            <p class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">50k+</p>
                             <p class="text-sm text-gray-500 dark:text-gray-400">Active Students</p>
                         </div>
-                        <div class="w-px h-10 bg-gray-200 dark:bg-gray-700"></div>
-                        <div>
-                            <p class="text-3xl font-bold text-gray-900 dark:text-white">4.9/5</p>
+                        <div class="w-px h-10 bg-gray-200 dark:bg-gray-700 flex-shrink-0"></div>
+                        <div class="flex-shrink-0">
+                            <p class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">4.9/5</p>
                             <p class="text-sm text-gray-500 dark:text-gray-400">User Rating</p>
                         </div>
-                        <div class="w-px h-10 bg-gray-200 dark:bg-gray-700"></div>
-                        <div>
-                            <p class="text-3xl font-bold text-gray-900 dark:text-white">100+</p>
+                        <div class="w-px h-10 bg-gray-200 dark:bg-gray-700 flex-shrink-0"></div>
+                        <div class="flex-shrink-0">
+                            <p class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">100+</p>
                             <p class="text-sm text-gray-500 dark:text-gray-400">Expert Mentors</p>
                         </div>
                     </div>
@@ -551,15 +553,19 @@
                             Development
                         </div>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-4">
-                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                            <span class="text-sm text-gray-500">(4.8)</span>
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="flex-grow">
+                            <div class="flex items-center gap-2 mb-4">
+                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                                <span class="text-sm text-gray-500">(4.8)</span>
+                            </div>
+                            <h3
+                                class="font-heading font-bold text-xl mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
+                                Full Stack Web Development</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2">Master the MERN stack
+                                and
+                                build modern web applications from scratch.</p>
                         </div>
-                        <h3 class="font-heading font-bold text-xl mb-2 group-hover:text-primary-600 transition-colors">
-                            Full Stack Web Development</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2">Master the MERN stack and
-                            build modern web applications from scratch.</p>
 
                         <div
                             class="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-gray-800">
@@ -567,7 +573,7 @@
                                 <img src="https://i.pravatar.cc/100?img=11" alt="Instructor"
                                     class="w-10 h-10 rounded-full">
                                 <div>
-                                    <p class="text-sm font-bold">John Doe</p>
+                                    <p class="text-sm font-bold text-gray-900 dark:text-white">John Doe</p>
                                     <p class="text-xs text-gray-500">Senior Dev</p>
                                 </div>
                             </div>
@@ -590,15 +596,19 @@
                             Design
                         </div>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-4">
-                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                            <span class="text-sm text-gray-500">(4.9)</span>
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="flex-grow">
+                            <div class="flex items-center gap-2 mb-4">
+                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                                <span class="text-sm text-gray-500">(4.9)</span>
+                            </div>
+                            <h3
+                                class="font-heading font-bold text-xl mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
+                                UI/UX Design Masterclass</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2">Learn to create
+                                beautiful
+                                and functional user interfaces.</p>
                         </div>
-                        <h3 class="font-heading font-bold text-xl mb-2 group-hover:text-primary-600 transition-colors">
-                            UI/UX Design Masterclass</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2">Learn to create beautiful
-                            and functional user interfaces.</p>
 
                         <div
                             class="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-gray-800">
@@ -606,7 +616,7 @@
                                 <img src="https://i.pravatar.cc/100?img=5" alt="Instructor"
                                     class="w-10 h-10 rounded-full">
                                 <div>
-                                    <p class="text-sm font-bold">Sarah Smith</p>
+                                    <p class="text-sm font-bold text-gray-900 dark:text-white">Sarah Smith</p>
                                     <p class="text-xs text-gray-500">Lead Designer</p>
                                 </div>
                             </div>
@@ -629,15 +639,18 @@
                             Data Science
                         </div>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-4">
-                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                            <span class="text-sm text-gray-500">(4.7)</span>
+                    <div class="p-6 flex flex-col h-full">
+                        <div class="flex-grow">
+                            <div class="flex items-center gap-2 mb-4">
+                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                                <span class="text-sm text-gray-500">(4.7)</span>
+                            </div>
+                            <h3
+                                class="font-heading font-bold text-xl mb-2 group-hover:text-primary-600 transition-colors line-clamp-2">
+                                Data Science Fundamentals</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2">Analyze data and build
+                                machine learning models with Python.</p>
                         </div>
-                        <h3 class="font-heading font-bold text-xl mb-2 group-hover:text-primary-600 transition-colors">
-                            Data Science Fundamentals</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2">Analyze data and build
-                            machine learning models with Python.</p>
 
                         <div
                             class="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-gray-800">
@@ -645,7 +658,7 @@
                                 <img src="https://i.pravatar.cc/100?img=8" alt="Instructor"
                                     class="w-10 h-10 rounded-full">
                                 <div>
-                                    <p class="text-sm font-bold">Mike Johnson</p>
+                                    <p class="text-sm font-bold text-gray-900 dark:text-white">Mike Johnson</p>
                                     <p class="text-xs text-gray-500">Data Scientist</p>
                                 </div>
                             </div>
@@ -687,173 +700,285 @@
                 </div>
             </div>
         </div>
-    
+    </section>
+
     <!-- Interactive Learning Experience -->
-    <section class="py-20 bg-white dark:bg-dark-card">
+    <section class="pt-20 pb-32 bg-white dark:bg-dark-card border-t border-gray-100 dark:border-gray-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="font-heading font-bold text-3xl md:text-4xl mb-4">Interactive Learning Experience</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Engage with cutting-edge learning tools and methodologies designed for modern learners</p>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Engage with cutting-edge
+                    learning tools and methodologies designed for modern learners</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Live Sessions -->
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 border border-primary-100 dark:border-primary-800 hover:shadow-xl transition-all duration-300" data-aos="fade-up">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-600 to-secondary-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="group p-8 rounded-2xl bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 border border-primary-100 dark:border-primary-800 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up">
+                    <div class="mb-6 rounded-xl overflow-hidden h-40">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Live Sessions"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-600 to-secondary-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
+                            </path>
                         </svg>
                     </div>
                     <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Live Sessions</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Interactive classes with expert instructors in real-time. Ask questions, get instant feedback, and learn alongside peers.</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Interactive classes with expert instructors in
+                        real-time. Ask questions, get instant feedback, and learn alongside peers.</p>
                     <div class="flex items-center text-primary-600 dark:text-primary-400 font-semibold">
                         <span class="text-sm">Join live classes</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                         </svg>
                     </div>
                 </div>
 
                 <!-- Group Projects -->
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-100 dark:border-green-800 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="group p-8 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-100 dark:border-green-800 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-6 rounded-xl overflow-hidden h-40">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Group Projects"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
                         </svg>
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Group Projects</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Collaborate with peers on real-world challenges. Build your portfolio while developing teamwork and communication skills.</p>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Group Projects
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Collaborate with peers on real-world
+                        challenges. Build your portfolio while developing teamwork and communication skills.</p>
                     <div class="flex items-center text-green-600 dark:text-green-400 font-semibold">
                         <span class="text-sm">Start collaborating</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                         </svg>
                     </div>
                 </div>
 
                 <!-- AI Tutoring -->
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-100 dark:border-purple-800 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="group p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-100 dark:border-purple-800 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-6 rounded-xl overflow-hidden h-40">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="AI Tutoring"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                            </path>
                         </svg>
                     </div>
                     <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">AI Tutoring</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Personalized learning with AI assistance. Get instant answers, adaptive practice problems, and customized study plans.</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Personalized learning with AI assistance. Get
+                        instant answers, adaptive practice problems, and customized study plans.</p>
                     <div class="flex items-center text-purple-600 dark:text-purple-400 font-semibold">
                         <span class="text-sm">Try AI tutor</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                         </svg>
                     </div>
                 </div>
 
                 <!-- Certificates -->
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-100 dark:border-yellow-800 hover:shadow-xl transition-all duration-300" data-aos="fade-up">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-600 to-orange-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="group p-8 rounded-2xl bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-100 dark:border-yellow-800 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up">
+                    <div class="mb-6 rounded-xl overflow-hidden h-40">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Certificates"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-600 to-orange-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                            </path>
                         </svg>
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Industry Certificates</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Earn industry-recognized credentials upon completion. Share on LinkedIn and boost your professional profile.</p>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Industry
+                        Certificates</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Earn industry-recognized credentials upon
+                        completion. Share on LinkedIn and boost your professional profile.</p>
                     <div class="flex items-center text-yellow-600 dark:text-yellow-400 font-semibold">
                         <span class="text-sm">View certificates</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                         </svg>
                     </div>
                 </div>
 
                 <!-- Internships -->
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-100 dark:border-blue-800 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="group p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-100 dark:border-blue-800 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-6 rounded-xl overflow-hidden h-40">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Internships"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
                         </svg>
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Industry Internships</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Industrial expert-guided training programs. Gain real-world experience and build connections with leading companies.</p>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Industry
+                        Internships</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Industrial expert-guided training programs.
+                        Gain real-world experience and build connections with leading companies.</p>
                     <div class="flex items-center text-blue-600 dark:text-blue-400 font-semibold">
                         <span class="text-sm">Explore internships</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                         </svg>
                     </div>
                 </div>
 
                 <!-- Letters of Recommendation -->
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-red-50 to-rose-50 dark:from-red-900/20 dark:to-rose-900/20 border border-red-100 dark:border-red-800 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-rose-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="group p-8 rounded-2xl bg-gradient-to-br from-red-50 to-rose-50 dark:from-red-900/20 dark:to-rose-900/20 border border-red-100 dark:border-red-800 hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-6 rounded-xl overflow-hidden h-40">
+                        <img src="https://images.unsplash.com/photo-1517673132405-a56a62b18caf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Letters of Recommendation"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-rose-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                            </path>
                         </svg>
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Letters of Recommendation</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Top-performing students receive personalized recommendation letters from industry experts and instructors.</p>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Letters of
+                        Recommendation</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Top-performing students receive personalized
+                        recommendation letters from industry experts and instructors.</p>
                     <div class="flex items-center text-red-600 dark:text-red-400 font-semibold">
                         <span class="text-sm">Learn more</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                         </svg>
                     </div>
                 </div>
 
                 <!-- Study Kits -->
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 border border-indigo-100 dark:border-indigo-800 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1" data-aos="fade-up">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="group p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 border border-indigo-100 dark:border-indigo-800 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1"
+                    data-aos="fade-up">
+                    <div class="mb-6 rounded-xl overflow-hidden h-40">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Study Kits"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
                         </svg>
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Exciting Study Kits</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Enthusiastic learners receive curated study materials, exclusive resources, and premium learning tools to accelerate progress.</p>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Exciting Study
+                        Kits</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Enthusiastic learners receive curated study
+                        materials, exclusive resources, and premium learning tools to accelerate progress.</p>
                     <div class="flex items-center text-indigo-600 dark:text-indigo-400 font-semibold">
                         <span class="text-sm">Get your kit</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                         </svg>
                     </div>
                 </div>
 
                 <!-- Hands-on Labs -->
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 border border-teal-100 dark:border-teal-800 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="group p-8 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 border border-teal-100 dark:border-teal-800 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-6 rounded-xl overflow-hidden h-40">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Hands-on Labs"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                         </svg>
                     </div>
                     <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Hands-on Labs</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Practice in real coding environments with pre-configured labs. No setup required - start coding immediately.</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Practice in real coding environments with
+                        pre-configured labs. No setup required - start coding immediately.</p>
                     <div class="flex items-center text-teal-600 dark:text-teal-400 font-semibold">
                         <span class="text-sm">Access labs</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                         </svg>
                     </div>
                 </div>
 
                 <!-- Career Support -->
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border border-amber-100 dark:border-amber-800 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-600 to-yellow-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div class="group p-8 rounded-2xl bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border border-amber-100 dark:border-amber-800 hover:shadow-xl transition-all duration-300 md:col-span-2 lg:col-span-1"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-6 rounded-xl overflow-hidden h-40">
+                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Career Support"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-600 to-yellow-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                         </svg>
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Career Support</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">Resume reviews, interview preparation, and job placement assistance. We help you land your dream job.</p>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 dark:text-white mb-3">Career Support
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Resume reviews, interview preparation, and job
+                        placement assistance. We help you land your dream job.</p>
                     <div class="flex items-center text-amber-600 dark:text-amber-400 font-semibold">
                         <span class="text-sm">Get support</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
                         </svg>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-</section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-16 border-t border-gray-800">
